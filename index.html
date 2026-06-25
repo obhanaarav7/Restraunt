@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mumbai Table | Restaurant Finder</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="top-bar" aria-label="Main navigation">
+      <a class="logo" href="#">Mumbai Table</a>
+      <span class="nav-badge">Curated city dining</span>
+    </nav>
+
+    <section class="hero-content">
+      <p class="eyebrow">Premium Mumbai restaurant guide</p>
+      <h1>Find your next favourite table in Mumbai.</h1>
+      <p class="hero-text">
+        Explore hand-picked restaurants by neighbourhood, cuisine, and price range.
+        The cards update instantly as you choose filters.
+      </p>
+    </section>
+  </header>
+
+  <main>
+    <section class="filters-panel" aria-labelledby="filter-title">
+      <div>
+        <p class="eyebrow">Search smarter</p>
+        <h2 id="filter-title">Filter restaurants</h2>
+      </div>
+
+      <div class="filters-grid">
+        <label for="areaFilter">
+          Area
+          <select id="areaFilter">
+            <option value="all">All areas</option>
+          </select>
+        </label>
+
+        <label for="cuisineFilter">
+          Cuisine
+          <select id="cuisineFilter">
+            <option value="all">All cuisines</option>
+          </select>
+        </label>
+
+        <label for="priceFilter">
+          Price
+          <select id="priceFilter">
+            <option value="all">All prices</option>
+          </select>
+        </label>
+
+        <button id="resetButton" type="button">Reset filters</button>
+      </div>
+    </section>
+
+    <section class="results-heading" aria-live="polite">
+      <div>
+        <p class="eyebrow">Restaurants</p>
+        <h2 id="resultsCount">Showing all restaurants</h2>
+      </div>
+      <p>Tip: combine filters to narrow your choices.</p>
+    </section>
+
+    <section id="restaurantGrid" class="restaurant-grid" aria-label="Restaurant results"></section>
+
+    <section id="emptyState" class="empty-state" hidden>
+      <p class="empty-icon">🍽️</p>
+      <h2>No restaurants found</h2>
+      <p>Try changing one of the filters or reset everything to start again.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built with HTML, CSS, and JavaScript for food lovers in Mumbai.</p>
+  </footer>
+
+  <script src="restaurants-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

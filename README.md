@@ -1,160 +1,91 @@
-# 🍽️ Mumbai Eats - Restaurant Web App
+# Mumbai Table - Restaurant Web App
 
-A beautiful, beginner-friendly web application to discover and filter restaurants in Mumbai. Built with pure HTML, CSS, and JavaScript with a premium UI design.
+A beginner-friendly static web app for discovering Mumbai restaurants. It uses only
+HTML, CSS, and vanilla JavaScript.
 
-## 📸 Features
+## Features
 
-✨ **Beautiful Premium UI** - Modern gradient designs with smooth animations
-🔍 **Smart Filtering** - Filter by area, cuisine type, and price range
-📱 **Responsive Design** - Works perfectly on desktop, tablet, and mobile
-🎨 **Restaurant Cards** - Eye-catching cards with emojis and detailed information
-⚡ **Fast Performance** - No external dependencies, pure vanilla JavaScript
+- Restaurant cards with area, cuisine, price, rating, address, and a short highlight.
+- Area, cuisine, and price filters that work together.
+- Reset button to quickly show every restaurant again.
+- Clean premium UI with gradients, cards, rounded corners, shadows, and responsive layouts.
+- No build tools or frameworks needed.
 
-## 📁 File Structure
+## How to run
 
-### 1. **index.html** (Main HTML Structure)
-The backbone of the application. Contains:
-- **Header Section**: Title and tagline with gradient background
-- **Filters Section**: Three dropdown menus for filtering
-- **Reset Button**: Clears all filters
-- **Results Display**: Shows the number of restaurants found
-- **Restaurant Container**: Grid where restaurant cards appear
-- **Footer**: Simple footer section
-- **Script Imports**: Links to JavaScript files
+Open `index.html` directly in a browser.
 
-### 2. **styles.css** (Premium Styling)
-Beautiful CSS with professional styling:
-- **CSS Variables**: Uses custom properties for easy color/theme management
-- **Gradients**: Linear gradients for headers and buttons
-- **Flexbox & Grid**: Responsive layouts using modern CSS
-- **Animations**: Smooth transitions and hover effects
-- **Responsive Design**: Media queries for mobile optimization
-- **Shadow Effects**: Professional box-shadows for depth
-- **Color Scheme**: Orange primary (#FF6B35) and blue secondary (#004E89)
+## File explanation
 
-### 3. **restaurants-data.js** (Restaurant Database)
-Contains all restaurant information:
-- **12 Restaurants**: With realistic Mumbai restaurant names
-- **Data Fields**: Name, area, cuisine, price, rating, emoji, address
-- **Areas Covered**: Bandra, Fort, Andheri, Thane, Powai, Southex
-- **Cuisines**: Italian, Indian, Chinese, Seafood, Continental, Fusion
-- **Price Categories**: Budget (₹), Mid-Range (₹₹₹), Premium (₹₹₹₹)
+### `index.html`
 
-### 4. **script.js** (Interactive Functionality)
-Main JavaScript file with filtering logic:
-- **displayRestaurants()**: Creates and displays restaurant cards
-- **filterRestaurants()**: Filters based on user selections
-- **resetFilters()**: Clears all filters
-- **getPriceSymbol()**: Converts price to rupee symbols
-- **Event Listeners**: Responds to user interactions
+This is the main page. It creates the app structure:
 
-## 🎨 Design Elements
+- A large hero section with the app title and description.
+- A filter panel with three dropdowns: area, cuisine, and price.
+- A reset button.
+- A results heading that tells the user how many restaurants are showing.
+- An empty state message for filter combinations with no matches.
+- Script tags that load `restaurants-data.js` first, then `script.js`.
 
-### Colors
-```
-Primary Orange: #FF6B35 (Vibrant, eye-catching)
-Secondary Blue: #004E89 (Professional, calm)
-Light Background: #F7F9FC (Clean, modern)
-White: #FFFFFF (Content areas)
-```
+### `styles.css`
 
-### Typography
-- **Font Family**: Segoe UI, Tahoma, Geneva (Professional)
-- **Headers**: Bold, larger sizes for hierarchy
-- **Body Text**: Readable, comfortable font size
+This file controls the premium visual design:
 
-### Interactions
-- Cards lift up on hover (`transform: translateY`)
-- Shadow depth increases on hover
-- Buttons have scale effect on hover
-- Smooth transitions (0.3s) for all animations
+- CSS variables in `:root` store reusable colors, shadows, and border radius values.
+- The hero uses layered gradients for a polished restaurant-guide feel.
+- CSS Grid lays out the filter panel and restaurant cards.
+- Cards use hover effects, shadows, rounded corners, and badges.
+- Media queries make the layout adapt for tablets and phones.
 
-## 🚀 How to Use
+### `restaurants-data.js`
 
-1. **Open in Browser**: Simply open `index.html` in any web browser
-2. **Filter Restaurants**: 
-   - Select an area from the Area dropdown
-   - Choose a cuisine type from the Cuisine dropdown
-   - Pick a price range from the Price dropdown
-3. **See Results**: Restaurant cards update instantly
-4. **Reset Filters**: Click the "Reset Filters" button to see all restaurants
+This file stores the restaurant data in one array named `restaurants`.
 
-## 💡 Beginner-Friendly Code Features
+Each restaurant object includes:
 
-✅ **Clear Comments**: Every function and section has explanatory comments
-✅ **Simple Logic**: Easy-to-understand filtering algorithm
-✅ **Modular Structure**: Separate files for data and functionality
-✅ **No Framework**: Pure HTML, CSS, JavaScript - no external libraries
-✅ **Semantic HTML**: Proper use of HTML5 semantic elements
-✅ **CSS Organization**: Variables and logical grouping
+- `name`
+- `area`
+- `cuisine`
+- `price`
+- `rating`
+- `emoji`
+- `address`
+- `description`
+- `highlight`
 
-## 📱 Responsive Breakpoints
+Keeping the data separate makes it easy to add or edit restaurants without touching
+the filtering logic.
 
-- **Desktop**: Full grid with 3+ columns
-- **Tablet**: 2-column grid (768px and below)
-- **Mobile**: Single column layout (480px and below)
+### `script.js`
 
-## 🎯 How to Extend
+This file adds the interactivity:
 
-**Add More Restaurants**:
+- Finds important HTML elements with `document.querySelector`.
+- Fills each dropdown using unique values from `restaurants-data.js`.
+- Builds restaurant card HTML with `createRestaurantCard`.
+- Shows cards with `displayRestaurants`.
+- Filters restaurants with `filterRestaurants`.
+- Clears filters with `resetFilters`.
+- Adds event listeners so the page reacts when dropdowns change.
+
+## How to add a restaurant
+
+Add a new object to the `restaurants` array in `restaurants-data.js`:
+
 ```javascript
-// Add to restaurants-data.js
 {
-    id: 13,
-    name: "Your Restaurant",
-    area: "Your Area",
-    cuisine: "Your Cuisine",
-    price: "Budget/Mid-Range/Premium",
-    priceValue: 500,
-    rating: 4.5,
-    emoji: "🍕",
-    address: "Your Address"
+  id: 13,
+  name: "New Mumbai Spot",
+  area: "Bandra",
+  cuisine: "Italian",
+  price: "Mid Range",
+  rating: 4.4,
+  emoji: "🍕",
+  address: "Example Road, Mumbai",
+  description: "Short description of the restaurant.",
+  highlight: "Best for: pizza nights"
 }
 ```
 
-**Add New Filter**:
-1. Add a new `<select>` in HTML
-2. Add options to the dropdown
-3. Create a new variable in JavaScript
-4. Add filter logic in `filterRestaurants()` function
-
-**Customize Colors**:
-Edit the CSS variables at the top of `styles.css`:
-```css
---primary-color: #FF6B35;  /* Change this */
---secondary-color: #004E89; /* Or this */
-```
-
-## 🔧 Browser Compatibility
-
-✅ Chrome (Latest)
-✅ Firefox (Latest)
-✅ Safari (Latest)
-✅ Edge (Latest)
-✅ Mobile Browsers
-
-## 📝 Code Comments Guide
-
-Each file contains detailed comments:
-- `// ========================` - Section dividers
-- `// FUNCTION: Name` - Function explanations
-- Inline comments explain complex logic
-
-## 🎓 Learning Resources
-
-This project teaches:
-- HTML5 semantic structure
-- CSS Grid and Flexbox
-- CSS custom properties (variables)
-- DOM manipulation with JavaScript
-- Event handling
-- Array filtering methods
-- String interpolation with template literals
-
-## 📞 Support
-
-Questions about the code? Check the inline comments in each file for detailed explanations!
-
----
-
-Made with ❤️ | Mumbai Eats 2024
+The filters update automatically because `script.js` reads values from the data.
