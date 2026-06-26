@@ -10,16 +10,29 @@ const DataStore = {
       return this.restaurants;
     }
 
-    const response = await fetch("restaurants.json");
+    try {
+      const response = await fetch("restaurants.json");
 
-    if (!response.ok) {
-      throw new Error("Could not load restaurants.json");
+      if (!response.ok) {
+        throw new Error("Could not load restaurants.json");
+      }
+
+      const data = await response.json();
+      this.setRestaurants(data.restaurants);
+      return this.restaurants;
+    } catch (error) {
+      if (window.RESTAURANT_DATABASE_FALLBACK) {
+        this.setRestaurants(window.RESTAURANT_DATABASE_FALLBACK.restaurants);
+        return this.restaurants;
+      }
+
+      throw error;
     }
+  },
 
-    const data = await response.json();
-    this.restaurants = data.restaurants;
+  setRestaurants(restaurants) {
+    this.restaurants = restaurants;
     window.restaurants = this.restaurants;
-    return this.restaurants;
   },
 
   getRestaurantById(id) {

@@ -488,4 +488,13 @@ async function initApp() {
   bindEvents();
 }
 
-initApp();
+function renderLoadError(error) {
+  resultsCount.textContent = "Restaurant data could not load";
+  resultsSubtext.textContent = "Refresh the page, or run it with a local server if your browser blocks local files.";
+  restaurantGrid.innerHTML = "";
+  emptyState.hidden = false;
+  emptyState.querySelector("h2").textContent = "Unable to load restaurants";
+  emptyState.querySelector("p").textContent = error.message;
+}
+
+initApp().catch(renderLoadError);

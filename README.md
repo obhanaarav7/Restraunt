@@ -29,7 +29,7 @@ HTML, CSS, and vanilla JavaScript.
 
 ## How to run
 
-Run a local static server, then open `index.html`.
+Recommended: run a local static server, then open `index.html`.
 
 ```bash
 python3 -m http.server 8000
@@ -37,8 +37,9 @@ python3 -m http.server 8000
 
 Then open `http://localhost:8000`.
 
-The app loads `restaurants.json` with `fetch`, so using a local server is more
-reliable than opening the file directly from disk.
+The app loads `restaurants.json` with `fetch`. It also includes a generated
+`restaurants-fallback.js` file so cards still appear when the site is opened
+directly from an extracted ZIP/folder.
 
 The restaurant photos use online image links, so you need internet access for the
 photos to appear. The app still works if the photos do not load.
@@ -62,7 +63,7 @@ This is the main page. It creates the app structure:
 - A reset button.
 - A results heading that tells the user how many restaurants are showing.
 - An empty state message for filter combinations with no matches.
-- Script tags that load `data-store.js`, `assistant-data.js`, `script.js`, and `detail-modal.js`.
+- Script tags that load `restaurants-fallback.js`, `data-store.js`, `assistant-data.js`, `script.js`, and `detail-modal.js`.
 
 ### `styles.css`
 
@@ -118,6 +119,14 @@ This file loads `restaurants.json` once with `fetch` and exposes helper methods:
 - `loadRestaurants()`
 - `getRestaurantById()`
 - `getUniqueValues()`
+
+If a browser blocks local JSON loading, it falls back to `restaurants-fallback.js`.
+
+### `restaurants-fallback.js`
+
+This generated file mirrors `restaurants.json` so the site still works when opened
+directly from a local folder. Do not edit it by hand; edit `restaurants.json` as
+the source of truth.
 
 ### `assistant-data.js`
 

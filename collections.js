@@ -153,4 +153,11 @@ async function initCollections() {
   });
 }
 
-initCollections();
+function renderCollectionsError(error) {
+  collectionTitle.textContent = "Collection data could not load";
+  collectionSubtext.textContent = error.message;
+  collectionGrid.innerHTML = "";
+  collectionRestaurantGrid.innerHTML = "";
+}
+
+initCollections().catch(renderCollectionsError);
