@@ -103,7 +103,7 @@ function createRestaurantCard(restaurant, index) {
   const savedLabel = isSaved ? "Remove from saved" : "Save restaurant";
 
   return `
-    <article class="restaurant-card" style="animation-delay: ${index * 0.04}s">
+    <article class="restaurant-card" data-restaurant-id="${restaurant.id}" style="animation-delay: ${index * 0.04}s">
       <div class="card-top">
         <img class="restaurant-photo" src="${restaurant.photo}" alt="${restaurant.name} restaurant photo" loading="lazy">
         <div class="photo-overlay"></div>
@@ -377,7 +377,7 @@ function createRecommendationCard(restaurant, query, index) {
   const profile = getProfile(restaurant);
 
   return `
-    <article class="recommendation-card" style="animation-delay: ${index * 0.04}s">
+    <article class="recommendation-card" data-restaurant-id="${restaurant.id}" style="animation-delay: ${index * 0.04}s">
       <p class="eyebrow">${restaurant.area} · ${restaurant.cuisine}</p>
       <h3>${restaurant.name}</h3>
       <p class="recommendation-reason">${buildRecommendationReason(restaurant, query)}</p>

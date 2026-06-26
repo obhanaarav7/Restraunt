@@ -70,7 +70,7 @@ function createRestaurantCard(restaurant, index) {
   const featuredLabel = restaurant.rating >= 4.7 ? '<span class="featured-pill">Top rated</span>' : "";
 
   return `
-    <article class="restaurant-card" style="animation-delay: ${index * 0.04}s">
+    <article class="restaurant-card" data-restaurant-id="${restaurant.id}" style="animation-delay: ${index * 0.04}s">
       <div class="card-top">
         <img class="restaurant-photo" src="${restaurant.photo}" alt="${restaurant.name} restaurant photo" loading="lazy">
         <div class="photo-overlay"></div>

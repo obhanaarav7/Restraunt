@@ -16,6 +16,9 @@ HTML, CSS, and vanilla JavaScript.
 - Concierge search that recommends the top 3 restaurants from plain-language dining briefs.
 - Concierge quick chips for date night, rooftop, Japanese, Italian, brunch, wine, hidden gems, family, business, and late night.
 - Separate `collections.html` page with curated collections that automatically filter restaurants.
+- Premium restaurant detail modal from every restaurant card.
+- Detail pages include hero image, gallery carousel, curated scores, planning notes, reservation/directions/call/website actions, and nearby restaurants.
+- Loading skeleton and subtle micro-interactions for the detail experience.
 - Card entrance animations and extra mobile polish.
 - Reset button to quickly show every restaurant again.
 - Rich premium UI with glass panels, gradients, card badges, price meters, shadows, and responsive layouts.
@@ -57,6 +60,7 @@ This file controls the premium visual design:
 - CSS Grid lays out the filter panel and restaurant cards.
 - Cards use photos, hover effects, shadows, rounded corners, badges, card numbers, and price meters.
 - Concierge and collection cards reuse the same premium card language.
+- The detail modal, carousel, skeleton state, score cards, and nearby cards use the same palette and spacing system.
 - A `light-theme` body class changes the page into light mode.
 - Media queries make the layout adapt for tablets and phones.
 
@@ -93,6 +97,7 @@ This file stores extra metadata for the concierge and collections:
 - Curated rating
 - Keyword tags
 - Collection membership
+- Detail-page planning metadata used by the modal
 - Concierge quick chip labels and queries
 - Collection names and descriptions
 
@@ -113,6 +118,7 @@ This file adds the interactivity:
 - Scores concierge recommendations with local JavaScript keyword matching only.
 - Renders the top 3 concierge recommendations.
 - Handles concierge quick chip clicks.
+- Adds restaurant IDs to rendered cards so the shared detail modal can open any restaurant.
 - Adds event listeners so the page reacts when dropdowns change.
 
 ### `collections.html`
@@ -128,6 +134,18 @@ This file controls the Collections page:
 - Filters restaurants by collection membership.
 - Reuses the same premium restaurant card structure.
 - Keeps the dark/light theme toggle working on the collections page.
+- Adds restaurant IDs to collection result cards so the shared detail modal works there too.
+
+### `detail-modal.js`
+
+This shared file powers the premium restaurant detail modal:
+
+- Opens when a restaurant or recommendation card is clicked.
+- Shows a loading skeleton before rendering details.
+- Builds a large hero image, editorial description, gallery carousel, curated scores, and planning notes.
+- Adds reservation, directions, call, and website buttons.
+- Shows nearby restaurants and lets those open in the same modal.
+- Supports Escape, previous/next gallery buttons, and thumbnail clicks.
 
 ## How to add a restaurant
 
