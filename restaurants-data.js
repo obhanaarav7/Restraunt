@@ -1,6 +1,6 @@
 // restaurants-data.js
 // This file is our small "database". Each object stores one restaurant.
-// Keeping the data in a separate file makes script.js easier to read.
+// The app reads this data to create cards, filters, map pins, and friend check-ins.
 
 const restaurants = [
   {
@@ -13,7 +13,11 @@ const restaurants = [
     emoji: "🦞",
     address: "Waterfield Road, Bandra West",
     description: "A glamorous seafood spot known for lobster plates, sushi, and celebration dinners.",
-    highlight: "Best for: special occasions"
+    highlight: "Best for: special occasions",
+    photo: "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=80",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Bastian+Bandra+Mumbai",
+    bookingUrl: "https://www.google.com/search?q=Bastian+Bandra+Mumbai+book+table",
+    orderUrl: "https://www.google.com/search?q=Bastian+Bandra+Mumbai+order+food"
   },
   {
     id: 2,
@@ -25,7 +29,11 @@ const restaurants = [
     emoji: "🥘",
     address: "Kamala Mills, Lower Parel",
     description: "Playful regional Indian food served in a warm, polished dining room.",
-    highlight: "Best for: inventive Indian plates"
+    highlight: "Best for: inventive Indian plates",
+    photo: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=900&q=80",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=The+Bombay+Canteen+Lower+Parel+Mumbai",
+    bookingUrl: "https://www.google.com/search?q=The+Bombay+Canteen+book+table",
+    orderUrl: "https://www.google.com/search?q=The+Bombay+Canteen+order+food"
   },
   {
     id: 3,
@@ -37,7 +45,11 @@ const restaurants = [
     emoji: "☕",
     address: "Colaba Causeway, Colaba",
     description: "A classic Mumbai cafe with comfort food, quick service, and old-city energy.",
-    highlight: "Best for: tourists and groups"
+    highlight: "Best for: tourists and groups",
+    photo: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=80",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Leopold+Cafe+Colaba+Mumbai",
+    bookingUrl: "https://www.google.com/search?q=Leopold+Cafe+Mumbai+book+table",
+    orderUrl: "https://www.google.com/search?q=Leopold+Cafe+Mumbai+order+food"
   },
   {
     id: 4,
@@ -49,7 +61,11 @@ const restaurants = [
     emoji: "🦀",
     address: "Sai Baba Marg, Fort",
     description: "Beloved coastal restaurant famous for butter garlic crab and fish fry.",
-    highlight: "Best for: coastal flavours"
+    highlight: "Best for: coastal flavours",
+    photo: "https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=900&q=80",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Trishna+Fort+Mumbai",
+    bookingUrl: "https://www.google.com/search?q=Trishna+Fort+Mumbai+book+table",
+    orderUrl: "https://www.google.com/search?q=Trishna+Fort+Mumbai+order+food"
   },
   {
     id: 5,
@@ -61,7 +77,11 @@ const restaurants = [
     emoji: "🍵",
     address: "Janki Kutir, Juhu",
     description: "A relaxed courtyard cafe with theatre crowd charm, chai, and snacks.",
-    highlight: "Best for: casual evenings"
+    highlight: "Best for: casual evenings",
+    photo: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Prithvi+Cafe+Juhu+Mumbai",
+    bookingUrl: "https://www.google.com/search?q=Prithvi+Cafe+Juhu+book+table",
+    orderUrl: "https://www.google.com/search?q=Prithvi+Cafe+Juhu+order+food"
   },
   {
     id: 6,
@@ -73,7 +93,11 @@ const restaurants = [
     emoji: "🥟",
     address: "Raheja Tower, Bandra Kurla Complex",
     description: "Premium dim sum, tea, and Cantonese-style dishes in a sleek dining room.",
-    highlight: "Best for: dim sum lunches"
+    highlight: "Best for: dim sum lunches",
+    photo: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?auto=format&fit=crop&w=900&q=80",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Yauatcha+BKC+Mumbai",
+    bookingUrl: "https://www.google.com/search?q=Yauatcha+Mumbai+book+table",
+    orderUrl: "https://www.google.com/search?q=Yauatcha+Mumbai+order+food"
   },
   {
     id: 7,
@@ -85,7 +109,11 @@ const restaurants = [
     emoji: "🥞",
     address: "Bhaudaji Road, Matunga East",
     description: "A legendary spot for crisp dosas, filter coffee, and old-school service.",
-    highlight: "Best for: breakfast"
+    highlight: "Best for: breakfast",
+    photo: "https://images.unsplash.com/photo-1630383249896-424e482df921?auto=format&fit=crop&w=900&q=80",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Cafe+Madras+Matunga+Mumbai",
+    bookingUrl: "https://www.google.com/search?q=Cafe+Madras+Matunga+book+table",
+    orderUrl: "https://www.google.com/search?q=Cafe+Madras+Matunga+order+food"
   },
   {
     id: 8,
@@ -97,7 +125,11 @@ const restaurants = [
     emoji: "🍝",
     address: "G Block, Bandra Kurla Complex",
     description: "A stylish Italian restaurant serving handmade pasta, pizzas, and aperitivo drinks.",
-    highlight: "Best for: date nights"
+    highlight: "Best for: date nights",
+    photo: "https://images.unsplash.com/photo-1498579150354-977475b7ea0b?auto=format&fit=crop&w=900&q=80",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=CinCin+BKC+Mumbai",
+    bookingUrl: "https://www.google.com/search?q=CinCin+BKC+book+table",
+    orderUrl: "https://www.google.com/search?q=CinCin+BKC+order+food"
   },
   {
     id: 9,
@@ -109,7 +141,11 @@ const restaurants = [
     emoji: "🐟",
     address: "Hanuman Road, Vile Parle East",
     description: "Reliable Malvani seafood with thalis, sol kadhi, and fresh fish specials.",
-    highlight: "Best for: family meals"
+    highlight: "Best for: family meals",
+    photo: "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?auto=format&fit=crop&w=900&q=80",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Gajalee+Vile+Parle+Mumbai",
+    bookingUrl: "https://www.google.com/search?q=Gajalee+Mumbai+book+table",
+    orderUrl: "https://www.google.com/search?q=Gajalee+Mumbai+order+food"
   },
   {
     id: 10,
@@ -121,7 +157,11 @@ const restaurants = [
     emoji: "🍛",
     address: "Transocean House, Powai",
     description: "Modern North Indian plates in a welcoming restaurant with thoughtful service.",
-    highlight: "Best for: lively dinners"
+    highlight: "Best for: lively dinners",
+    photo: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=900&q=80",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Mirchi+and+Mime+Powai+Mumbai",
+    bookingUrl: "https://www.google.com/search?q=Mirchi+and+Mime+Powai+book+table",
+    orderUrl: "https://www.google.com/search?q=Mirchi+and+Mime+Powai+order+food"
   },
   {
     id: 11,
@@ -133,7 +173,11 @@ const restaurants = [
     emoji: "🍲",
     address: "Babulnath Road, Girgaon",
     description: "Comforting vegetarian food with dhokla, farsan, thalis, and seasonal specials.",
-    highlight: "Best for: vegetarian meals"
+    highlight: "Best for: vegetarian meals",
+    photo: "https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=900&q=80",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Soam+Girgaon+Mumbai",
+    bookingUrl: "https://www.google.com/search?q=Soam+Mumbai+book+table",
+    orderUrl: "https://www.google.com/search?q=Soam+Mumbai+order+food"
   },
   {
     id: 12,
@@ -145,6 +189,145 @@ const restaurants = [
     emoji: "🍣",
     address: "Pali Hill, Bandra West",
     description: "A compact, high-quality Japanese restaurant loved for ramen, sushi, and small plates.",
-    highlight: "Best for: ramen cravings"
+    highlight: "Best for: ramen cravings",
+    photo: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=900&q=80",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Izumi+Bandra+Mumbai",
+    bookingUrl: "https://www.google.com/search?q=Izumi+Bandra+book+table",
+    orderUrl: "https://www.google.com/search?q=Izumi+Bandra+order+food"
+  },
+  {
+    id: 13,
+    name: "Masque",
+    area: "Mahalaxmi",
+    cuisine: "Tasting Menu",
+    price: "Luxury",
+    rating: 4.8,
+    emoji: "🍽️",
+    address: "Laxmi Mills, Mahalaxmi",
+    description: "A refined tasting-menu restaurant with seasonal Indian ingredients and dramatic plating.",
+    highlight: "Best for: chef's menu nights",
+    photo: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Masque+Mahalaxmi+Mumbai",
+    bookingUrl: "https://www.google.com/search?q=Masque+Mumbai+book+table",
+    orderUrl: "https://www.google.com/search?q=Masque+Mumbai+order+food"
+  },
+  {
+    id: 14,
+    name: "Americano",
+    area: "Fort",
+    cuisine: "Italian",
+    price: "Premium",
+    rating: 4.6,
+    emoji: "🍕",
+    address: "Kala Ghoda, Fort",
+    description: "A polished neighbourhood restaurant for pizza, pasta, cocktails, and weekend brunch.",
+    highlight: "Best for: brunch plans",
+    photo: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=900&q=80",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Americano+Kala+Ghoda+Mumbai",
+    bookingUrl: "https://www.google.com/search?q=Americano+Mumbai+book+table",
+    orderUrl: "https://www.google.com/search?q=Americano+Mumbai+order+food"
+  },
+  {
+    id: 15,
+    name: "O Pedro",
+    area: "BKC",
+    cuisine: "Goan",
+    price: "Premium",
+    rating: 4.7,
+    emoji: "🍤",
+    address: "Jet Airways Godrej BKC, BKC",
+    description: "Bright Goan flavours, seafood plates, and cocktails in a lively room.",
+    highlight: "Best for: group celebrations",
+    photo: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=900&q=80",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=O+Pedro+BKC+Mumbai",
+    bookingUrl: "https://www.google.com/search?q=O+Pedro+BKC+book+table",
+    orderUrl: "https://www.google.com/search?q=O+Pedro+BKC+order+food"
+  },
+  {
+    id: 16,
+    name: "Kofuku",
+    area: "Bandra",
+    cuisine: "Japanese",
+    price: "Mid Range",
+    rating: 4.4,
+    emoji: "🍜",
+    address: "Linking Road, Bandra West",
+    description: "Cosy Japanese comfort food with ramen, donburi, sushi, and private booth seating.",
+    highlight: "Best for: cosy ramen dates",
+    photo: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=900&q=80",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Kofuku+Bandra+Mumbai",
+    bookingUrl: "https://www.google.com/search?q=Kofuku+Bandra+book+table",
+    orderUrl: "https://www.google.com/search?q=Kofuku+Bandra+order+food"
+  },
+  {
+    id: 17,
+    name: "Kyani & Co.",
+    area: "Marine Lines",
+    cuisine: "Irani Cafe",
+    price: "Budget",
+    rating: 4.4,
+    emoji: "🥐",
+    address: "Jer Mahal Estate, Marine Lines",
+    description: "Vintage Irani cafe charm with bun maska, chai, berry pulao, and baked treats.",
+    highlight: "Best for: old Bombay mornings",
+    photo: "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Kyani+and+Co+Marine+Lines+Mumbai",
+    bookingUrl: "https://www.google.com/search?q=Kyani+and+Co+Mumbai",
+    orderUrl: "https://www.google.com/search?q=Kyani+and+Co+Mumbai+order+food"
+  },
+  {
+    id: 18,
+    name: "Mahesh Lunch Home",
+    area: "Juhu",
+    cuisine: "Seafood",
+    price: "Mid Range",
+    rating: 4.5,
+    emoji: "🦐",
+    address: "Juhu Tara Road, Juhu",
+    description: "A dependable coastal favourite for prawns, crab, neer dosa, and family dinners.",
+    highlight: "Best for: seafood thalis",
+    photo: "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=900&q=80",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Mahesh+Lunch+Home+Juhu+Mumbai",
+    bookingUrl: "https://www.google.com/search?q=Mahesh+Lunch+Home+Juhu+book+table",
+    orderUrl: "https://www.google.com/search?q=Mahesh+Lunch+Home+Juhu+order+food"
+  }
+];
+
+const friendCheckIns = [
+  {
+    id: 1,
+    name: "Aarav",
+    avatar: "AO",
+    restaurantId: 2,
+    status: "Trying the seasonal menu",
+    x: 46,
+    y: 58
+  },
+  {
+    id: 2,
+    name: "Mira",
+    avatar: "MK",
+    restaurantId: 12,
+    status: "Ramen night",
+    x: 28,
+    y: 44
+  },
+  {
+    id: 3,
+    name: "Kabir",
+    avatar: "KS",
+    restaurantId: 6,
+    status: "Dim sum with office friends",
+    x: 38,
+    y: 52
+  },
+  {
+    id: 4,
+    name: "Rhea",
+    avatar: "RS",
+    restaurantId: 5,
+    status: "Post-theatre chai",
+    x: 21,
+    y: 63
   }
 ];

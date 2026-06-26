@@ -1,8 +1,10 @@
 // script.js
 // This file controls the interactive parts of the app:
-// 1. Fill the filter dropdowns.
-// 2. Show restaurant cards.
-// 3. Filter cards when the user changes a dropdown.
+// 1. Fill filters from the restaurant data.
+// 2. Show restaurant cards with photos, buttons, and save hearts.
+// 3. Filter by search, area, cuisine, price, and saved restaurants.
+// 4. Switch dark/light theme.
+// 5. Render the demo social dining map.
 
 const restaurantGrid = document.querySelector("#restaurantGrid");
 const resultsCount = document.querySelector("#resultsCount");
@@ -14,7 +16,39 @@ const areaFilter = document.querySelector("#areaFilter");
 const cuisineFilter = document.querySelector("#cuisineFilter");
 const priceFilter = document.querySelector("#priceFilter");
 const resetButton = document.querySelector("#resetButton");
-const quickChips = document.querySelectorAll(".quick-chip");
+const quickChips = document.querySelectorAll(".quick-chip[data-area]");
+const favoritesOnlyButton = document.querySelector("#favoritesOnlyButton");
+const favoriteCount = document.querySelector("#favoriteCount");
+
+const themeToggle = document.querySelector("#themeToggle");
+const friendForm = document.querySelector("#friendForm");
+const friendName = document.querySelector("#friendName");
+const friendRestaurant = document.querySelector("#friendRestaurant");
+const friendMap = document.querySelector("#friendMap");
+const friendList = document.querySelector("#friendList");
+const friendCount = document.querySelector("#friendCount");
+
+let savedRestaurantIds = new Set(loadFromStorage("savedRestaurants", []));
+let customFriends = loadFromStorage("customFriends", []);
+let favoritesOnly = false;
+
+// This helper reads localStorage safely. If storage is blocked, it returns a backup value.
+function loadFromStorage(key, backupValue) {
+  try {
+    const savedValue = localStorage.getItem(key);
+    return savedValue ? JSON.parse(savedValue) : backupValue;
+  } catch (error) {
+    return backupValue;
+  }
+}
+
+function saveToStorage(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch (error) {
+    // The app still works if storage is blocked; it just will not remember choices.
+  }
+}
 
 // This helper finds unique values, sorts them, and turns them into <option> tags.
 function fillFilter(selectElement, values, customOrder) {
@@ -34,6 +68,12 @@ function fillFilter(selectElement, values, customOrder) {
   });
 }
 
+function getRestaurantById(id) {
+  return restaurants.find(function(restaurant) {
+    return restaurant.id === Number(id);
+  });
+}
+
 function getPriceLevel(price) {
   const priceLevels = {
     "Budget": 1,
@@ -42,7 +82,7 @@ function getPriceLevel(price) {
     "Luxury": 4
   };
 
-  return priceLevels[price];
+  return priceLevels[price] || 0;
 }
 
 function createPriceMeter(price) {
@@ -61,15 +101,23 @@ function formatCardNumber(id) {
   return `No. ${String(id).padStart(2, "0")}`;
 }
 
-function createRestaurantCard(restaurant) {
+function createRestaurantCard(restaurant, index) {
+  const isSaved = savedRestaurantIds.has(String(restaurant.id));
   const featuredLabel = restaurant.rating >= 4.7 ? '<span class="featured-pill">Top rated</span>' : "";
+  const savedClass = isSaved ? " is-saved" : "";
+  const savedLabel = isSaved ? "Remove from saved" : "Save restaurant";
 
   return `
-    <article class="restaurant-card">
+    <article class="restaurant-card" style="animation-delay: ${index * 0.04}s">
       <div class="card-top">
+        <img class="restaurant-photo" src="${restaurant.photo}" alt="${restaurant.name} restaurant photo" loading="lazy">
+        <div class="photo-overlay"></div>
         <span class="card-number">${formatCardNumber(restaurant.id)}</span>
         <span class="rating-pill">${restaurant.rating} ★</span>
         ${featuredLabel}
+        <button class="save-button${savedClass}" type="button" data-id="${restaurant.id}" aria-label="${savedLabel}">
+          ${isSaved ? "♥" : "♡"}
+        </button>
         <span class="food-emoji" aria-hidden="true">${restaurant.emoji}</span>
       </div>
 
@@ -92,6 +140,12 @@ function createRestaurantCard(restaurant) {
           <span>${restaurant.address}</span>
           <span class="highlight">${restaurant.highlight}</span>
         </div>
+
+        <div class="card-actions">
+          <a class="action-link" href="${restaurant.bookingUrl}" target="_blank" rel="noopener">Book</a>
+          <a class="action-link secondary" href="${restaurant.orderUrl}" target="_blank" rel="noopener">Order</a>
+          <a class="action-link secondary" href="${restaurant.mapUrl}" target="_blank" rel="noopener">Map</a>
+        </div>
       </div>
     </article>
   `;
@@ -99,22 +153,27 @@ function createRestaurantCard(restaurant) {
 
 function displayRestaurants(restaurantsToShow) {
   restaurantGrid.innerHTML = restaurantsToShow.map(createRestaurantCard).join("");
+  updateFavoriteCount();
 
   if (restaurantsToShow.length === 0) {
     emptyState.hidden = false;
     resultsCount.textContent = "No restaurants match your filters";
-    resultsSubtext.textContent = "Try a broader search term or remove one filter.";
+    resultsSubtext.textContent = favoritesOnly
+      ? "You have no saved restaurants in this filter. Try showing all restaurants."
+      : "Try a broader search term or remove one filter.";
     return;
   }
 
   emptyState.hidden = true;
 
-  if (restaurantsToShow.length === restaurants.length) {
+  if (restaurantsToShow.length === restaurants.length && !favoritesOnly) {
     resultsCount.textContent = "Showing all restaurants";
-    resultsSubtext.textContent = "Tip: search and combine filters to narrow your choices.";
+    resultsSubtext.textContent = "Tip: save restaurants, open maps, or add friends to the demo dining map.";
   } else {
     resultsCount.textContent = `Showing ${restaurantsToShow.length} restaurant${restaurantsToShow.length === 1 ? "" : "s"}`;
-    resultsSubtext.textContent = "Filters are active. Reset to return to the full Mumbai list.";
+    resultsSubtext.textContent = favoritesOnly
+      ? "Saved-only mode is active."
+      : "Filters are active. Reset to return to the full Mumbai list.";
   }
 }
 
@@ -130,8 +189,9 @@ function filterRestaurants() {
     const areaMatches = selectedArea === "all" || restaurant.area === selectedArea;
     const cuisineMatches = selectedCuisine === "all" || restaurant.cuisine === selectedCuisine;
     const priceMatches = selectedPrice === "all" || restaurant.price === selectedPrice;
+    const savedMatches = !favoritesOnly || savedRestaurantIds.has(String(restaurant.id));
 
-    return searchMatches && areaMatches && cuisineMatches && priceMatches;
+    return searchMatches && areaMatches && cuisineMatches && priceMatches && savedMatches;
   });
 
   updateQuickChips();
@@ -143,6 +203,8 @@ function resetFilters() {
   areaFilter.value = "all";
   cuisineFilter.value = "all";
   priceFilter.value = "all";
+  favoritesOnly = false;
+  favoritesOnlyButton.classList.remove("is-active");
   updateQuickChips();
   displayRestaurants(restaurants);
 }
@@ -151,6 +213,120 @@ function updateQuickChips() {
   quickChips.forEach(function(chip) {
     chip.classList.toggle("is-active", chip.dataset.area === areaFilter.value);
   });
+}
+
+function updateFavoriteCount() {
+  favoriteCount.textContent = savedRestaurantIds.size;
+  favoritesOnlyButton.setAttribute("aria-pressed", String(favoritesOnly));
+}
+
+function toggleSavedRestaurant(id) {
+  const restaurantId = String(id);
+
+  if (savedRestaurantIds.has(restaurantId)) {
+    savedRestaurantIds.delete(restaurantId);
+  } else {
+    savedRestaurantIds.add(restaurantId);
+  }
+
+  saveToStorage("savedRestaurants", [...savedRestaurantIds]);
+  filterRestaurants();
+}
+
+function setTheme(theme) {
+  const isLight = theme === "light";
+  document.body.classList.toggle("light-theme", isLight);
+  themeToggle.textContent = isLight ? "🌙" : "☀️";
+  themeToggle.setAttribute("aria-label", isLight ? "Switch to dark mode" : "Switch to light mode");
+  saveToStorage("theme", theme);
+}
+
+function getInitials(name) {
+  return name
+    .split(" ")
+    .map(function(part) {
+      return part.charAt(0);
+    })
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+}
+
+function getAllFriends() {
+  return friendCheckIns.concat(customFriends);
+}
+
+function renderFriendRestaurantOptions() {
+  friendRestaurant.innerHTML = restaurants.map(function(restaurant) {
+    return `<option value="${restaurant.id}">${restaurant.name} · ${restaurant.area}</option>`;
+  }).join("");
+}
+
+function renderFriendMap() {
+  const allFriends = getAllFriends();
+
+  const labels = `
+    <span class="map-label north">Bandra / BKC</span>
+    <span class="map-label south">Town side</span>
+  `;
+
+  const pins = allFriends.map(function(friend) {
+    return `
+      <button class="friend-pin" type="button" title="${friend.name}" style="left: ${friend.x}%; top: ${friend.y}%;">
+        <span>${friend.avatar}</span>
+      </button>
+    `;
+  }).join("");
+
+  friendMap.innerHTML = labels + pins;
+  friendCount.textContent = `${allFriends.length} friend${allFriends.length === 1 ? "" : "s"} out`;
+}
+
+function renderFriendList() {
+  friendList.innerHTML = getAllFriends().map(function(friend) {
+    const restaurant = getRestaurantById(friend.restaurantId);
+
+    return `
+      <article class="friend-card">
+        <span class="friend-avatar">${friend.avatar}</span>
+        <div>
+          <h4>${friend.name} at ${restaurant.name}</h4>
+          <p>${friend.status} · ${restaurant.area}</p>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+function renderFriends() {
+  renderFriendMap();
+  renderFriendList();
+}
+
+function addFriend(event) {
+  event.preventDefault();
+
+  const name = friendName.value.trim();
+
+  if (!name) {
+    friendName.focus();
+    return;
+  }
+
+  const newFriend = {
+    id: Date.now(),
+    name: name,
+    avatar: getInitials(name),
+    restaurantId: Number(friendRestaurant.value),
+    status: "Just checked in",
+    x: 18 + Math.floor(Math.random() * 64),
+    y: 18 + Math.floor(Math.random() * 64)
+  };
+
+  customFriends.push(newFriend);
+  saveToStorage("customFriends", customFriends);
+  friendName.value = "";
+  renderFriends();
 }
 
 // Start the app by filling filters and showing every restaurant card.
@@ -166,18 +342,42 @@ fillFilter(priceFilter, restaurants.map(function(restaurant) {
   return restaurant.price;
 }), ["Budget", "Mid Range", "Premium", "Luxury"]);
 
+renderFriendRestaurantOptions();
+renderFriends();
+setTheme(loadFromStorage("theme", "dark"));
 displayRestaurants(restaurants);
 updateQuickChips();
+updateFavoriteCount();
 
 searchInput.addEventListener("input", filterRestaurants);
 areaFilter.addEventListener("change", filterRestaurants);
 cuisineFilter.addEventListener("change", filterRestaurants);
 priceFilter.addEventListener("change", filterRestaurants);
 resetButton.addEventListener("click", resetFilters);
+friendForm.addEventListener("submit", addFriend);
+
+themeToggle.addEventListener("click", function() {
+  const nextTheme = document.body.classList.contains("light-theme") ? "dark" : "light";
+  setTheme(nextTheme);
+});
+
+favoritesOnlyButton.addEventListener("click", function() {
+  favoritesOnly = !favoritesOnly;
+  favoritesOnlyButton.classList.toggle("is-active", favoritesOnly);
+  filterRestaurants();
+});
 
 quickChips.forEach(function(chip) {
   chip.addEventListener("click", function() {
     areaFilter.value = chip.dataset.area;
     filterRestaurants();
   });
+});
+
+restaurantGrid.addEventListener("click", function(event) {
+  const saveButton = event.target.closest(".save-button");
+
+  if (saveButton) {
+    toggleSavedRestaurant(saveButton.dataset.id);
+  }
 });
