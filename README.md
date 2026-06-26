@@ -6,12 +6,15 @@ HTML, CSS, and vanilla JavaScript.
 ## Features
 
 - Restaurant cards with area, cuisine, price, rating, address, and a short highlight.
-- Area, cuisine, price, and search filters that work together.
+- Multi-filtering for cuisine, budget, occasion, dress code, outdoor seating, live music, pet friendly, vegetarian friendly, and valet parking.
+- Improved partial-match search across restaurant name, cuisine, area, dish, and occasion.
 - Quick area chips for popular Mumbai neighbourhoods.
 - Premium hero section with stats and a featured restaurant preview.
 - Real food/restaurant-style photos loaded from Unsplash image URLs.
 - Book, order, and Google Maps buttons on every restaurant card.
 - Save/favourite buttons with a "Saved only" filter.
+- Recently viewed restaurants remembered in `localStorage`.
+- Compare two restaurants by cuisine, price, ratings, perfect for, dress code, and luxury score.
 - Dark/light theme toggle remembered in the browser.
 - Concierge search that recommends the top 3 restaurants from plain-language dining briefs.
 - Concierge quick chips for date night, rooftop, Japanese, Italian, brunch, wine, hidden gems, family, business, and late night.
@@ -26,7 +29,16 @@ HTML, CSS, and vanilla JavaScript.
 
 ## How to run
 
-Open `index.html` directly in a browser.
+Run a local static server, then open `index.html`.
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open `http://localhost:8000`.
+
+The app loads `restaurants.json` with `fetch`, so using a local server is more
+reliable than opening the file directly from disk.
 
 The restaurant photos use online image links, so you need internet access for the
 photos to appear. The app still works if the photos do not load.
@@ -42,14 +54,15 @@ This is the main page. It creates the app structure:
 - Small guide stats near the hero title.
 - A theme toggle button in the top navigation.
 - A link to the Collections page.
-- A filter panel with a search box and three dropdowns: area, cuisine, and price.
+- A filter panel with search, area, cuisine, price, occasion, dress code, and feature filters.
 - Quick area buttons for common filters like Bandra, BKC, Colaba, and Powai.
 - A "Saved only" button with a saved restaurant count.
+- Compare and recently viewed panels.
 - A Concierge panel with a dining-brief input, quick chips, and top 3 recommendations.
 - A reset button.
 - A results heading that tells the user how many restaurants are showing.
 - An empty state message for filter combinations with no matches.
-- Script tags that load `restaurants-data.js` first, then `script.js`.
+- Script tags that load `data-store.js`, `assistant-data.js`, `script.js`, and `detail-modal.js`.
 
 ### `styles.css`
 
@@ -64,9 +77,10 @@ This file controls the premium visual design:
 - A `light-theme` body class changes the page into light mode.
 - Media queries make the layout adapt for tablets and phones.
 
-### `restaurants-data.js`
+### `restaurants.json`
 
-This file stores the restaurant data in one array named `restaurants`.
+This is the restaurant database. Adding a restaurant should only require editing
+this JSON file.
 
 Each restaurant object includes:
 
@@ -83,37 +97,51 @@ Each restaurant object includes:
 - `mapUrl`
 - `bookingUrl`
 - `orderUrl`
+- `averageSpend`
+- `perfectFor`
+- `mustOrder`
+- `curatedRating`
+- `tags`
+- `collections`
+- `occasions`
+- `dressCode`
+- `features`
+- `detail`
 
 Keeping the data separate makes it easy to add or edit restaurants without touching
 the filtering logic.
 
+### `data-store.js`
+
+This file loads `restaurants.json` once with `fetch` and exposes helper methods:
+
+- `loadRestaurants()`
+- `getRestaurantById()`
+- `getUniqueValues()`
+
 ### `assistant-data.js`
 
-This file stores extra metadata for the concierge and collections:
+This file stores non-restaurant configuration:
 
-- Average spend
-- Perfect-for notes
-- Must-order dishes
-- Curated rating
-- Keyword tags
-- Collection membership
-- Detail-page planning metadata used by the modal
-- Concierge quick chip labels and queries
-- Collection names and descriptions
+- Concierge quick chip labels and queries.
+- Collection names and descriptions.
 
 ### `script.js`
 
 This file adds the interactivity:
 
 - Finds important HTML elements with `document.querySelector`.
-- Fills each dropdown using unique values from `restaurants-data.js`.
-- Searches restaurant names, areas, cuisines, and descriptions.
+- Loads restaurant data through `data-store.js`.
+- Fills dropdowns using values from `restaurants.json`.
+- Searches restaurant names, areas, cuisines, dishes, occasions, and tags.
 - Lets quick chips update the area filter.
-- Builds restaurant card HTML with `createRestaurantCard`, including photo, save, book, order, and map buttons.
+- Builds restaurant card HTML with `createRestaurantCard`, including photo, save, book, order, map, and compare buttons.
 - Shows cards with `displayRestaurants`.
 - Filters restaurants with `filterRestaurants`.
 - Clears filters with `resetFilters`.
 - Saves favourite restaurants in `localStorage`.
+- Renders recently viewed restaurants from `localStorage`.
+- Compares two selected restaurants.
 - Remembers dark/light theme choice in `localStorage`.
 - Scores concierge recommendations with local JavaScript keyword matching only.
 - Renders the top 3 concierge recommendations.
@@ -149,25 +177,26 @@ This shared file powers the premium restaurant detail modal:
 
 ## How to add a restaurant
 
-Add a new object to the `restaurants` array in `restaurants-data.js`:
+Add a new object to the `restaurants` array in `restaurants.json`:
 
-```javascript
+```json
 {
-  id: 13,
-  name: "New Mumbai Spot",
-  area: "Bandra",
-  cuisine: "Italian",
-  price: "Mid Range",
-  rating: 4.4,
-  emoji: "🍕",
-  address: "Example Road, Mumbai",
-  description: "Short description of the restaurant.",
-  highlight: "Best for: pizza nights",
-  photo: "https://example.com/photo.jpg",
-  mapUrl: "https://www.google.com/maps/search/?api=1&query=New+Mumbai+Spot",
-  bookingUrl: "https://www.google.com/search?q=New+Mumbai+Spot+book+table",
-  orderUrl: "https://www.google.com/search?q=New+Mumbai+Spot+order+food"
+  "id": 19,
+  "name": "New Mumbai Spot",
+  "area": "Bandra",
+  "cuisine": "Italian",
+  "price": "Mid Range",
+  "rating": 4.4,
+  "emoji": "🍕",
+  "address": "Example Road, Mumbai",
+  "description": "Short description of the restaurant.",
+  "highlight": "Best for: pizza nights",
+  "photo": "https://example.com/photo.jpg",
+  "mapUrl": "https://www.google.com/maps/search/?api=1&query=New+Mumbai+Spot",
+  "bookingUrl": "https://www.google.com/search?q=New+Mumbai+Spot+book+table",
+  "orderUrl": "https://www.google.com/search?q=New+Mumbai+Spot+order+food"
 }
 ```
 
-The filters update automatically because `script.js` reads values from the data.
+The cards, filters, search, collections, concierge, and detail modal read from
+`restaurants.json`.

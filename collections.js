@@ -1,6 +1,5 @@
 // collections.js
-// Controls the separate Collections page.
-// It uses the same restaurant data and the same premium card structure.
+// Collections page behavior. Restaurants are loaded from restaurants.json.
 
 const collectionGrid = document.querySelector("#collectionGrid");
 const collectionRestaurantGrid = document.querySelector("#collectionRestaurantGrid");
@@ -35,24 +34,18 @@ function setTheme(theme) {
   saveToStorage("theme", theme);
 }
 
-function getProfile(restaurant) {
-  return restaurantProfiles[restaurant.id];
-}
-
 function getPriceLevel(price) {
-  const priceLevels = {
+  return {
     "Budget": 1,
     "Mid Range": 2,
     "Premium": 3,
     "Luxury": 4
-  };
-
-  return priceLevels[price] || 0;
+  }[price] || 0;
 }
 
 function createPriceMeter(price) {
-  const filledDots = getPriceLevel(price);
   let dots = "";
+  const filledDots = getPriceLevel(price);
 
   for (let index = 1; index <= 4; index++) {
     const filledClass = index <= filledDots ? " is-filled" : "";
@@ -112,14 +105,13 @@ function createRestaurantCard(restaurant, index) {
 
 function getCollectionRestaurants(collectionId) {
   return restaurants.filter(function(restaurant) {
-    return getProfile(restaurant).collections.includes(collectionId);
+    return restaurant.collections.includes(collectionId);
   });
 }
 
 function renderCollectionCards() {
   collectionGrid.innerHTML = collections.map(function(collection) {
     const activeClass = collection.id === activeCollectionId ? " is-active" : "";
-
     return `
       <button class="collection-card${activeClass}" type="button" data-collection="${collection.id}">
         <p class="eyebrow">${getCollectionRestaurants(collection.id).length} picks</p>
@@ -134,33 +126,31 @@ function showCollection(collectionId) {
   const collection = collections.find(function(item) {
     return item.id === collectionId;
   }) || collections[0];
-
-  activeCollectionId = collection.id;
   const filteredRestaurants = getCollectionRestaurants(collection.id);
 
+  activeCollectionId = collection.id;
   collectionTitle.textContent = collection.title;
   collectionSubtext.textContent = `${filteredRestaurants.length} restaurant${filteredRestaurants.length === 1 ? "" : "s"} selected for this collection.`;
   collectionRestaurantGrid.innerHTML = filteredRestaurants.map(createRestaurantCard).join("");
   renderCollectionCards();
 }
 
-function getInitialCollectionId() {
+async function initCollections() {
+  await DataStore.loadRestaurants();
+  setTheme(loadFromStorage("theme", "dark"));
   const params = new URLSearchParams(window.location.search);
-  return params.get("collection") || collections[0].id;
+  showCollection(params.get("collection") || collections[0].id);
+
+  themeToggle.addEventListener("click", function() {
+    setTheme(document.body.classList.contains("light-theme") ? "dark" : "light");
+  });
+
+  collectionGrid.addEventListener("click", function(event) {
+    const collectionCard = event.target.closest(".collection-card");
+    if (collectionCard) {
+      showCollection(collectionCard.dataset.collection);
+    }
+  });
 }
 
-setTheme(loadFromStorage("theme", "dark"));
-showCollection(getInitialCollectionId());
-
-themeToggle.addEventListener("click", function() {
-  const nextTheme = document.body.classList.contains("light-theme") ? "dark" : "light";
-  setTheme(nextTheme);
-});
-
-collectionGrid.addEventListener("click", function(event) {
-  const collectionCard = event.target.closest(".collection-card");
-
-  if (collectionCard) {
-    showCollection(collectionCard.dataset.collection);
-  }
-});
+initCollections();

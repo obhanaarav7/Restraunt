@@ -134,6 +134,7 @@ body.light-theme .hero-card-meta span {
 .top-bar,
 .hero-content,
 .filters-panel,
+.compare-panel,
 .concierge-panel,
 .collections-panel,
 .collections-results,
@@ -358,6 +359,7 @@ main {
 }
 
 .concierge-panel,
+.compare-panel,
 .collections-panel {
   display: grid;
   gap: 24px;
@@ -371,6 +373,7 @@ main {
 }
 
 .filters-panel h2,
+.compare-panel h2,
 .concierge-panel h2,
 .collections-panel h2,
 .results-heading h2,
@@ -470,6 +473,60 @@ button:hover {
   background: #1d1812;
   border-color: #1d1812;
   color: #fff8ed;
+}
+
+.feature-chip.is-active {
+  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+  border-color: transparent;
+}
+
+.compare-content {
+  display: grid;
+  gap: 16px;
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.compare-card {
+  padding: 18px;
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.86);
+  border-radius: var(--radius-medium);
+  color: var(--ink);
+}
+
+.compare-card h3 {
+  margin: 4px 0 12px;
+  font-size: 1.35rem;
+  letter-spacing: -0.04em;
+}
+
+.compare-list {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+}
+
+.compare-list div {
+  padding-top: 9px;
+  border-top: 1px solid var(--line);
+}
+
+.compare-list dt {
+  color: var(--brand);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.compare-list dd {
+  margin: 3px 0 0;
+  font-weight: 800;
 }
 
 .quick-chip span {
@@ -800,7 +857,7 @@ button:hover {
 
 .card-actions {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 8px;
   margin-top: 18px;
 }
@@ -825,6 +882,11 @@ button:hover {
 .action-link.secondary {
   background: #fff2dd;
   color: var(--brand-dark);
+}
+
+.compare-button.is-active {
+  background: #1d1812;
+  color: #fff8ed;
 }
 
 body.detail-open {
@@ -1289,6 +1351,10 @@ footer {
   .detail-actions,
   .scores-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .compare-grid {
+    grid-template-columns: 1fr;
   }
 }
 

@@ -1,183 +1,45 @@
 // detail-modal.js
-// Shared premium restaurant detail modal for both index.html and collections.html.
-// It uses the existing restaurant and assistant data; no APIs or backend are needed.
-
-const detailGalleryImages = {
-  seafood: [
-    "https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?auto=format&fit=crop&w=1200&q=80"
-  ],
-  japanese: [
-    "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?auto=format&fit=crop&w=1200&q=80"
-  ],
-  italian: [
-    "https://images.unsplash.com/photo-1498579150354-977475b7ea0b?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1200&q=80"
-  ],
-  cafe: [
-    "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1200&q=80"
-  ],
-  indian: [
-    "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1200&q=80"
-  ],
-  luxury: [
-    "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80"
-  ]
-};
+// Shared restaurant detail modal. All restaurant detail content comes from restaurants.json.
 
 let activeDetailRestaurant = null;
 let activeGalleryIndex = 0;
 let detailLoadTimer = null;
 
-function getDetailProfile(restaurant) {
-  return restaurantProfiles[restaurant.id];
+function loadFromStorage(key, backupValue) {
+  try {
+    const savedValue = localStorage.getItem(key);
+    return savedValue ? JSON.parse(savedValue) : backupValue;
+  } catch (error) {
+    return backupValue;
+  }
 }
 
-function getGalleryKey(restaurant) {
-  const cuisine = restaurant.cuisine.toLowerCase();
-
-  if (cuisine.includes("seafood") || cuisine.includes("goan")) {
-    return "seafood";
+function saveToStorage(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch (error) {
+    // The modal still works if storage is blocked.
   }
-
-  if (cuisine.includes("japanese")) {
-    return "japanese";
-  }
-
-  if (cuisine.includes("italian")) {
-    return "italian";
-  }
-
-  if (cuisine.includes("cafe") || cuisine.includes("irani")) {
-    return "cafe";
-  }
-
-  if (restaurant.price === "Luxury" || cuisine.includes("tasting")) {
-    return "luxury";
-  }
-
-  return "indian";
 }
 
-function getRestaurantGallery(restaurant) {
-  const gallery = detailGalleryImages[getGalleryKey(restaurant)];
-  return [restaurant.photo].concat(gallery.filter(function(image) {
-    return image !== restaurant.photo;
-  })).slice(0, 4);
-}
+function rememberViewedRestaurant(id) {
+  const restaurantId = String(id);
+  const recentIds = loadFromStorage("recentlyViewedRestaurants", []);
+  const updatedIds = [restaurantId].concat(recentIds.filter(function(savedId) {
+    return savedId !== restaurantId;
+  })).slice(0, 8);
 
-function clampScore(score) {
-  return Math.max(7.8, Math.min(9.9, score)).toFixed(1);
-}
-
-function getCuratedScores(restaurant) {
-  const profile = getDetailProfile(restaurant);
-  const base = profile.curatedRating;
-  const tags = profile.tags;
-
-  return [
-    { label: "Food", value: clampScore(base + 0.2) },
-    { label: "Ambience", value: clampScore(base + (tags.includes("luxury") ? 0.3 : 0)) },
-    { label: "Service", value: clampScore(base - 0.1 + (restaurant.price === "Luxury" ? 0.2 : 0)) },
-    { label: "Luxury Feel", value: clampScore(base - 0.2 + (tags.includes("luxury") ? 0.5 : 0)) },
-    { label: "Date Night", value: clampScore(base - 0.1 + (tags.includes("date night") ? 0.4 : 0)) },
-    { label: "Instagram Worthiness", value: clampScore(base - 0.2 + (tags.includes("celebrity") || tags.includes("rooftop") ? 0.4 : 0)) }
-  ];
-}
-
-function getBestTableTip(restaurant) {
-  const profile = getDetailProfile(restaurant);
-
-  if (profile.tags.includes("rooftop")) {
-    return "Ask for a terrace-edge table around golden hour.";
-  }
-
-  if (profile.tags.includes("romantic") || profile.tags.includes("date night")) {
-    return "Request a corner table away from the main service path.";
-  }
-
-  if (profile.tags.includes("business")) {
-    return "Book a quieter table along the wall for easier conversation.";
-  }
-
-  if (profile.tags.includes("family")) {
-    return "Choose an early dinner slot for the smoothest service.";
-  }
-
-  return "Ask for the room's signature table when reserving.";
-}
-
-function getDressCode(restaurant) {
-  if (restaurant.price === "Luxury") {
-    return "Smart elegant";
-  }
-
-  if (restaurant.price === "Premium") {
-    return "Smart casual";
-  }
-
-  return "Relaxed casual";
-}
-
-function getParkingInfo(restaurant) {
-  const valetAreas = ["Bandra", "BKC", "Lower Parel", "Mahalaxmi", "Juhu", "Powai"];
-  return valetAreas.includes(restaurant.area) ? "Valet usually available" : "Street parking nearby; arrive early";
-}
-
-function getOpeningHours(restaurant) {
-  const profile = getDetailProfile(restaurant);
-
-  if (profile.tags.includes("breakfast") || profile.tags.includes("cafe")) {
-    return "8:00 AM - 11:30 PM";
-  }
-
-  if (profile.tags.includes("late night")) {
-    return "12:00 PM - 1:00 AM";
-  }
-
-  return "12:00 PM - 11:30 PM";
-}
-
-function getRestaurantPhone(restaurant) {
-  return `+91 22 40${String(restaurant.id).padStart(2, "0")} ${String(7000 + restaurant.id * 37).padStart(4, "0")}`;
-}
-
-function getWebsiteUrl(restaurant) {
-  return `https://www.google.com/search?q=${encodeURIComponent(`${restaurant.name} ${restaurant.area} official website`)}`;
-}
-
-function getEditorialDescription(restaurant) {
-  const profile = getDetailProfile(restaurant);
-  return `${restaurant.name} is the kind of Mumbai table that earns its place through mood as much as food. ${restaurant.description} The room works especially well for ${profile.perfectFor.toLowerCase()}, with a signature order of ${profile.mustOrder.toLowerCase()}.`;
+  saveToStorage("recentlyViewedRestaurants", updatedIds);
+  document.dispatchEvent(new CustomEvent("restaurantViewed"));
 }
 
 function getNearbyRestaurants(restaurant) {
-  const sameArea = restaurants.filter(function(candidate) {
-    return candidate.id !== restaurant.id && candidate.area === restaurant.area;
-  });
-
-  const sameCuisine = restaurants.filter(function(candidate) {
-    return candidate.id !== restaurant.id && candidate.cuisine === restaurant.cuisine;
-  });
-
-  const samePrice = restaurants.filter(function(candidate) {
-    return candidate.id !== restaurant.id && candidate.price === restaurant.price;
-  });
-
-  return sameArea.concat(sameCuisine, samePrice, restaurants).filter(function(candidate, index, list) {
-    return list.findIndex(function(item) {
-      return item.id === candidate.id;
-    }) === index;
+  return restaurants.filter(function(candidate) {
+    return candidate.id !== restaurant.id;
+  }).sort(function(first, second) {
+    const firstScore = Number(first.area === restaurant.area) + Number(first.cuisine === restaurant.cuisine) + Number(first.price === restaurant.price);
+    const secondScore = Number(second.area === restaurant.area) + Number(second.cuisine === restaurant.cuisine) + Number(second.price === restaurant.price);
+    return secondScore - firstScore;
   }).slice(0, 3);
 }
 
@@ -203,29 +65,33 @@ function createSkeleton() {
 }
 
 function createScoreCards(restaurant) {
-  return getCuratedScores(restaurant).map(function(score) {
+  return [
+    ["Food", restaurant.detail.scores.food],
+    ["Ambience", restaurant.detail.scores.ambience],
+    ["Service", restaurant.detail.scores.service],
+    ["Luxury Feel", restaurant.detail.scores.luxuryFeel],
+    ["Date Night", restaurant.detail.scores.dateNight],
+    ["Instagram Worthiness", restaurant.detail.scores.instagramWorthiness]
+  ].map(function(score) {
     return `
       <article class="score-card">
-        <span>${score.label}</span>
-        <strong>${score.value}</strong>
+        <span>${score[0]}</span>
+        <strong>${score[1]}</strong>
       </article>
     `;
   }).join("");
 }
 
 function createDetailFacts(restaurant) {
-  const profile = getDetailProfile(restaurant);
-  const facts = [
-    ["Must Order", profile.mustOrder],
-    ["Perfect For", profile.perfectFor],
-    ["Best Table Tip", getBestTableTip(restaurant)],
-    ["Dress Code", getDressCode(restaurant)],
-    ["Average Spend", profile.averageSpend],
-    ["Parking / Valet", getParkingInfo(restaurant)],
-    ["Opening Hours", getOpeningHours(restaurant)]
-  ];
-
-  return facts.map(function(fact) {
+  return [
+    ["Must Order", restaurant.mustOrder],
+    ["Perfect For", restaurant.perfectFor],
+    ["Best Table Tip", restaurant.detail.bestTableTip],
+    ["Dress Code", restaurant.dressCode],
+    ["Average Spend", restaurant.averageSpend],
+    ["Parking / Valet", restaurant.detail.parkingValet],
+    ["Opening Hours", restaurant.detail.openingHours]
+  ].map(function(fact) {
     return `
       <div>
         <dt>${fact[0]}</dt>
@@ -258,8 +124,7 @@ function createNearbyRestaurants(restaurant) {
 }
 
 function createDetailContent(restaurant) {
-  const profile = getDetailProfile(restaurant);
-  const gallery = getRestaurantGallery(restaurant);
+  const gallery = restaurant.detail.gallery;
   const activeImage = gallery[activeGalleryIndex];
 
   return `
@@ -276,7 +141,7 @@ function createDetailContent(restaurant) {
         <div class="hero-card-meta">
           <span>${restaurant.rating} ★</span>
           <span>${restaurant.price}</span>
-          <span>${profile.curatedRating}/10 curated</span>
+          <span>${restaurant.curatedRating}/10 curated</span>
         </div>
       </div>
     </div>
@@ -289,44 +154,36 @@ function createDetailContent(restaurant) {
       <section class="detail-editorial">
         <p class="eyebrow">Editorial note</p>
         <h3>Why it feels special</h3>
-        <p>${getEditorialDescription(restaurant)}</p>
+        <p>${restaurant.detail.editorialDescription}</p>
 
         <div class="detail-actions">
           <a class="action-link" href="${restaurant.bookingUrl}" target="_blank" rel="noopener">Reservation</a>
           <a class="action-link secondary" href="${restaurant.mapUrl}" target="_blank" rel="noopener">Directions</a>
-          <a class="action-link secondary" href="tel:${getRestaurantPhone(restaurant).replace(/\s/g, "")}">Call</a>
-          <a class="action-link secondary" href="${getWebsiteUrl(restaurant)}" target="_blank" rel="noopener">Website</a>
+          <a class="action-link secondary" href="tel:${restaurant.detail.phone.replace(/\s/g, "")}">Call</a>
+          <a class="action-link secondary" href="${restaurant.detail.websiteUrl}" target="_blank" rel="noopener">Website</a>
         </div>
       </section>
 
       <section>
         <p class="eyebrow">Curated scores</p>
-        <div class="scores-grid">
-          ${createScoreCards(restaurant)}
-        </div>
+        <div class="scores-grid">${createScoreCards(restaurant)}</div>
       </section>
 
       <section>
         <p class="eyebrow">Planning notes</p>
-        <dl class="detail-facts">
-          ${createDetailFacts(restaurant)}
-        </dl>
+        <dl class="detail-facts">${createDetailFacts(restaurant)}</dl>
       </section>
 
       <section>
         <p class="eyebrow">Nearby restaurants</p>
-        <div class="nearby-grid">
-          ${createNearbyRestaurants(restaurant)}
-        </div>
+        <div class="nearby-grid">${createNearbyRestaurants(restaurant)}</div>
       </section>
     </div>
   `;
 }
 
 function ensureDetailModal() {
-  if (document.querySelector("#restaurantDetailModal")) {
-    return;
-  }
+  if (document.querySelector("#restaurantDetailModal")) return;
 
   document.body.insertAdjacentHTML("beforeend", `
     <div id="restaurantDetailModal" class="detail-modal" hidden>
@@ -339,26 +196,22 @@ function ensureDetailModal() {
 }
 
 function renderDetailContent() {
-  const content = document.querySelector("#detailModalContent");
-  content.innerHTML = createDetailContent(activeDetailRestaurant);
+  document.querySelector("#detailModalContent").innerHTML = createDetailContent(activeDetailRestaurant);
 }
 
 function openRestaurantDetail(restaurantId) {
   ensureDetailModal();
-  activeDetailRestaurant = restaurants.find(function(restaurant) {
-    return restaurant.id === Number(restaurantId);
-  });
+  activeDetailRestaurant = DataStore.getRestaurantById(restaurantId);
   activeGalleryIndex = 0;
 
-  if (!activeDetailRestaurant) {
-    return;
-  }
+  if (!activeDetailRestaurant) return;
 
   const modal = document.querySelector("#restaurantDetailModal");
   const content = document.querySelector("#detailModalContent");
   modal.hidden = false;
   document.body.classList.add("detail-open");
   content.innerHTML = createSkeleton();
+  rememberViewedRestaurant(activeDetailRestaurant.id);
 
   clearTimeout(detailLoadTimer);
   detailLoadTimer = setTimeout(renderDetailContent, 180);
@@ -366,17 +219,13 @@ function openRestaurantDetail(restaurantId) {
 
 function closeRestaurantDetail() {
   const modal = document.querySelector("#restaurantDetailModal");
-
-  if (!modal) {
-    return;
-  }
-
+  if (!modal) return;
   modal.hidden = true;
   document.body.classList.remove("detail-open");
 }
 
 function moveGallery(direction) {
-  const gallery = getRestaurantGallery(activeDetailRestaurant);
+  const gallery = activeDetailRestaurant.detail.gallery;
   activeGalleryIndex = (activeGalleryIndex + direction + gallery.length) % gallery.length;
   renderDetailContent();
 }
@@ -393,48 +242,20 @@ document.addEventListener("click", function(event) {
   const galleryButton = event.target.closest("[data-gallery-direction]");
   const galleryThumb = event.target.closest("[data-gallery-index]");
   const nearbyCard = event.target.closest("[data-nearby-id]");
-  const interactiveTarget = event.target.closest("a, .save-button, .collection-card, .quick-chip, .gallery-control, .gallery-thumb, .nearby-card, .detail-close");
+  const interactiveTarget = event.target.closest("a, .save-button, .compare-button, .collection-card, .quick-chip, .gallery-control, .gallery-thumb, .nearby-card, .detail-close");
   const restaurantCard = event.target.closest("[data-restaurant-id]");
 
-  if (closeTarget) {
-    closeRestaurantDetail();
-    return;
-  }
-
-  if (galleryButton) {
-    moveGallery(Number(galleryButton.dataset.galleryDirection));
-    return;
-  }
-
-  if (galleryThumb) {
-    showGalleryImage(Number(galleryThumb.dataset.galleryIndex));
-    return;
-  }
-
-  if (nearbyCard) {
-    openRestaurantDetail(nearbyCard.dataset.nearbyId);
-    return;
-  }
-
-  if (restaurantCard && !interactiveTarget) {
-    openRestaurantDetail(restaurantCard.dataset.restaurantId);
-  }
+  if (closeTarget) return closeRestaurantDetail();
+  if (galleryButton) return moveGallery(Number(galleryButton.dataset.galleryDirection));
+  if (galleryThumb) return showGalleryImage(Number(galleryThumb.dataset.galleryIndex));
+  if (nearbyCard) return openRestaurantDetail(nearbyCard.dataset.nearbyId);
+  if (restaurantCard && !interactiveTarget) openRestaurantDetail(restaurantCard.dataset.restaurantId);
 });
 
 document.addEventListener("keydown", function(event) {
-  if (event.key === "Escape") {
-    closeRestaurantDetail();
-  }
-
-  if (!activeDetailRestaurant || document.querySelector("#restaurantDetailModal").hidden) {
-    return;
-  }
-
-  if (event.key === "ArrowLeft") {
-    moveGallery(-1);
-  }
-
-  if (event.key === "ArrowRight") {
-    moveGallery(1);
-  }
+  const modal = document.querySelector("#restaurantDetailModal");
+  if (event.key === "Escape") closeRestaurantDetail();
+  if (!activeDetailRestaurant || !modal || modal.hidden) return;
+  if (event.key === "ArrowLeft") moveGallery(-1);
+  if (event.key === "ArrowRight") moveGallery(1);
 });

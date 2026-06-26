@@ -102,6 +102,20 @@
           </select>
         </label>
 
+        <label for="occasionFilter">
+          Occasion
+          <select id="occasionFilter">
+            <option value="all">All occasions</option>
+          </select>
+        </label>
+
+        <label for="dressFilter">
+          Dress Code
+          <select id="dressFilter">
+            <option value="all">All dress codes</option>
+          </select>
+        </label>
+
         <button id="resetButton" type="button">Reset filters</button>
       </div>
 
@@ -112,6 +126,34 @@
         <button class="quick-chip" type="button" data-area="Colaba">Colaba</button>
         <button class="quick-chip" type="button" data-area="Powai">Powai</button>
         <button id="favoritesOnlyButton" class="quick-chip" type="button">Saved only <span id="favoriteCount">0</span></button>
+      </div>
+
+      <div class="quick-filters" aria-label="Feature filters">
+        <button class="quick-chip feature-chip" type="button" data-feature="outdoorSeating">Outdoor Seating</button>
+        <button class="quick-chip feature-chip" type="button" data-feature="liveMusic">Live Music</button>
+        <button class="quick-chip feature-chip" type="button" data-feature="petFriendly">Pet Friendly</button>
+        <button class="quick-chip feature-chip" type="button" data-feature="vegetarianFriendly">Vegetarian Friendly</button>
+        <button class="quick-chip feature-chip" type="button" data-feature="valetParking">Valet Parking</button>
+      </div>
+    </section>
+
+    <section class="compare-panel" aria-labelledby="compare-title">
+      <div>
+        <p class="eyebrow">Compare</p>
+        <h2 id="compare-title">Compare two restaurants</h2>
+      </div>
+      <div id="compareContent" class="compare-content">
+        <p>Select Compare on any two restaurant cards.</p>
+      </div>
+    </section>
+
+    <section class="compare-panel" aria-labelledby="recent-title">
+      <div>
+        <p class="eyebrow">Recently viewed</p>
+        <h2 id="recent-title">Your latest restaurants</h2>
+      </div>
+      <div id="recentlyViewed" class="compare-content">
+        <p>Open a restaurant detail page to build your recent list.</p>
       </div>
     </section>
 
@@ -158,7 +200,7 @@
     <p>Built with HTML, CSS, and JavaScript for food lovers in Mumbai.</p>
   </footer>
 
-  <script src="restaurants-data.js"></script>
+  <script src="data-store.js"></script>
   <script src="assistant-data.js"></script>
   <script src="script.js"></script>
   <script src="detail-modal.js"></script>
