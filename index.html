@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mumbai Table | Restaurant Finder</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-glow page-glow-one"></div>
+  <div class="page-glow page-glow-two"></div>
+
+  <header class="hero">
+    <nav class="top-bar" aria-label="Main navigation">
+      <a class="logo" href="#">
+        <span class="logo-mark">MT</span>
+        Mumbai Table
+      </a>
+      <div class="nav-actions">
+        <span class="nav-badge">Curated city dining</span>
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to light mode">☀️</button>
+        <a class="nav-link" href="collections.html">Collections</a>
+        <a class="nav-link" href="#restaurantGrid">Explore spots</a>
+      </div>
+    </nav>
+
+    <section class="hero-content">
+      <div class="hero-copy">
+        <p class="eyebrow">Premium Mumbai restaurant guide</p>
+        <h1>Book the mood before you book the table.</h1>
+        <p class="hero-text">
+          A sharper way to discover Mumbai dining: polished cards, instant filters,
+          area shortcuts, and hand-picked recommendations for every kind of night.
+        </p>
+
+        <div class="hero-stats" aria-label="Restaurant guide stats">
+          <article>
+            <strong>18</strong>
+            <span>curated spots</span>
+          </article>
+          <article>
+            <strong>12</strong>
+            <span>Mumbai areas</span>
+          </article>
+          <article>
+            <strong>4.6</strong>
+            <span>avg rating</span>
+          </article>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Featured restaurant preview">
+        <div class="hero-card-top">
+          <span class="live-dot"></span>
+          Tonight's pick
+        </div>
+        <div class="hero-card-photo">
+          <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=900&q=80" alt="Seafood restaurant table">
+        </div>
+        <h2>Trishna, Fort</h2>
+        <p>Butter garlic crab, coastal classics, and a timeless old-Mumbai dining room.</p>
+        <div class="hero-card-meta">
+          <span>4.6 ★</span>
+          <span>Premium</span>
+          <span>Seafood</span>
+        </div>
+      </aside>
+    </section>
+  </header>
+
+  <main>
+    <section class="filters-panel" aria-labelledby="filter-title">
+      <div>
+        <p class="eyebrow">Search smarter</p>
+        <h2 id="filter-title">Filter restaurants</h2>
+      </div>
+
+      <div class="filters-grid">
+        <label for="searchInput" class="search-field">
+          Search
+          <input id="searchInput" type="search" placeholder="Try Bandra, sushi, cafe...">
+        </label>
+
+        <label for="areaFilter">
+          Area
+          <select id="areaFilter">
+            <option value="all">All areas</option>
+          </select>
+        </label>
+
+        <label for="cuisineFilter">
+          Cuisine
+          <select id="cuisineFilter">
+            <option value="all">All cuisines</option>
+          </select>
+        </label>
+
+        <label for="priceFilter">
+          Price
+          <select id="priceFilter">
+            <option value="all">All prices</option>
+          </select>
+        </label>
+
+        <label for="occasionFilter">
+          Occasion
+          <select id="occasionFilter">
+            <option value="all">All occasions</option>
+          </select>
+        </label>
+
+        <label for="dressFilter">
+          Dress Code
+          <select id="dressFilter">
+            <option value="all">All dress codes</option>
+          </select>
+        </label>
+
+        <button id="resetButton" type="button">Reset filters</button>
+      </div>
+
+      <div class="quick-filters" aria-label="Quick area filters">
+        <button class="quick-chip is-active" type="button" data-area="all">All</button>
+        <button class="quick-chip" type="button" data-area="Bandra">Bandra</button>
+        <button class="quick-chip" type="button" data-area="BKC">BKC</button>
+        <button class="quick-chip" type="button" data-area="Colaba">Colaba</button>
+        <button class="quick-chip" type="button" data-area="Powai">Powai</button>
+        <button id="favoritesOnlyButton" class="quick-chip" type="button">Saved only <span id="favoriteCount">0</span></button>
+      </div>
+
+      <div class="quick-filters" aria-label="Feature filters">
+        <button class="quick-chip feature-chip" type="button" data-feature="outdoorSeating">Outdoor Seating</button>
+        <button class="quick-chip feature-chip" type="button" data-feature="liveMusic">Live Music</button>
+        <button class="quick-chip feature-chip" type="button" data-feature="petFriendly">Pet Friendly</button>
+        <button class="quick-chip feature-chip" type="button" data-feature="vegetarianFriendly">Vegetarian Friendly</button>
+        <button class="quick-chip feature-chip" type="button" data-feature="valetParking">Valet Parking</button>
+      </div>
+    </section>
+
+    <section class="concierge-panel" aria-labelledby="concierge-title">
+      <div>
+        <p class="eyebrow">Concierge</p>
+        <h2 id="concierge-title">Tell us the mood. We will shortlist the table.</h2>
+      </div>
+
+      <form id="conciergeForm" class="concierge-form">
+        <label for="conciergeInput">
+          Dining brief
+          <input id="conciergeInput" type="search" placeholder="Best anniversary dinner under ₹6000">
+        </label>
+        <button type="submit">Recommend</button>
+      </form>
+
+      <div id="conciergeChips" class="quick-filters concierge-chips" aria-label="Concierge quick recommendations"></div>
+
+      <div>
+        <p class="eyebrow">Top 3 recommendations</p>
+        <div id="conciergeResults" class="concierge-results" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="results-heading" aria-live="polite">
+      <div>
+        <p class="eyebrow">Restaurants</p>
+        <h2 id="resultsCount">Showing all restaurants</h2>
+      </div>
+      <p id="resultsSubtext">Tip: search and combine filters to narrow your choices.</p>
+    </section>
+
+    <section id="restaurantGrid" class="restaurant-grid" aria-label="Restaurant results"></section>
+
+    <section id="emptyState" class="empty-state" hidden>
+      <p class="empty-icon">🍽️</p>
+      <h2>No restaurants found</h2>
+      <p>Try changing one of the filters or reset everything to start again.</p>
+    </section>
+
+    <section class="compare-panel" aria-labelledby="compare-title">
+      <div>
+        <p class="eyebrow">Compare</p>
+        <h2 id="compare-title">Compare two restaurants</h2>
+      </div>
+      <div id="compareContent" class="compare-content">
+        <p>Select Compare on any two restaurant cards.</p>
+      </div>
+    </section>
+
+    <section class="compare-panel" aria-labelledby="recent-title">
+      <div>
+        <p class="eyebrow">Recently viewed</p>
+        <h2 id="recent-title">Your latest restaurants</h2>
+      </div>
+      <div id="recentlyViewed" class="compare-content">
+        <p>Open a restaurant detail page to build your recent list.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built with HTML, CSS, and JavaScript for food lovers in Mumbai.</p>
+  </footer>
+
+  <script src="restaurants-fallback.js"></script>
+  <script src="data-store.js"></script>
+  <script src="assistant-data.js"></script>
+  <script src="script.js"></script>
+  <script src="detail-modal.js"></script>
+</body>
+</html>

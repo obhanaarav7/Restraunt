@@ -1,160 +1,211 @@
-# 🍽️ Mumbai Eats - Restaurant Web App
+# Mumbai Table - Restaurant Web App
 
-A beautiful, beginner-friendly web application to discover and filter restaurants in Mumbai. Built with pure HTML, CSS, and JavaScript with a premium UI design.
+A beginner-friendly static web app for discovering Mumbai restaurants. It uses only
+HTML, CSS, and vanilla JavaScript.
 
-## 📸 Features
+## Features
 
-✨ **Beautiful Premium UI** - Modern gradient designs with smooth animations
-🔍 **Smart Filtering** - Filter by area, cuisine type, and price range
-📱 **Responsive Design** - Works perfectly on desktop, tablet, and mobile
-🎨 **Restaurant Cards** - Eye-catching cards with emojis and detailed information
-⚡ **Fast Performance** - No external dependencies, pure vanilla JavaScript
+- Restaurant cards with area, cuisine, price, rating, address, and a short highlight.
+- Multi-filtering for cuisine, budget, occasion, dress code, outdoor seating, live music, pet friendly, vegetarian friendly, and valet parking.
+- Improved partial-match search across restaurant name, cuisine, area, dish, and occasion.
+- Quick area chips for popular Mumbai neighbourhoods.
+- Premium hero section with stats and a featured restaurant preview.
+- Real food/restaurant-style photos loaded from Unsplash image URLs.
+- Book, order, and Google Maps buttons on every restaurant card.
+- Save/favourite buttons with a "Saved only" filter.
+- Recently viewed restaurants remembered in `localStorage`.
+- Compare two restaurants by cuisine, price, ratings, perfect for, dress code, and luxury score.
+- Dark/light theme toggle remembered in the browser.
+- Concierge search that recommends the top 3 restaurants from plain-language dining briefs.
+- Concierge quick chips for date night, rooftop, Japanese, Italian, brunch, wine, hidden gems, family, business, and late night.
+- Separate `collections.html` page with curated collections that automatically filter restaurants.
+- Premium restaurant detail modal from every restaurant card.
+- Detail pages include hero image, gallery carousel, curated scores, planning notes, reservation/directions/call/website actions, and nearby restaurants.
+- Loading skeleton and subtle micro-interactions for the detail experience.
+- Card entrance animations and extra mobile polish.
+- Reset button to quickly show every restaurant again.
+- Rich premium UI with glass panels, gradients, card badges, price meters, shadows, and responsive layouts.
+- No build tools or frameworks needed.
 
-## 📁 File Structure
+## How to run
 
-### 1. **index.html** (Main HTML Structure)
-The backbone of the application. Contains:
-- **Header Section**: Title and tagline with gradient background
-- **Filters Section**: Three dropdown menus for filtering
-- **Reset Button**: Clears all filters
-- **Results Display**: Shows the number of restaurants found
-- **Restaurant Container**: Grid where restaurant cards appear
-- **Footer**: Simple footer section
-- **Script Imports**: Links to JavaScript files
+Recommended: run a local static server, then open `index.html`.
 
-### 2. **styles.css** (Premium Styling)
-Beautiful CSS with professional styling:
-- **CSS Variables**: Uses custom properties for easy color/theme management
-- **Gradients**: Linear gradients for headers and buttons
-- **Flexbox & Grid**: Responsive layouts using modern CSS
-- **Animations**: Smooth transitions and hover effects
-- **Responsive Design**: Media queries for mobile optimization
-- **Shadow Effects**: Professional box-shadows for depth
-- **Color Scheme**: Orange primary (#FF6B35) and blue secondary (#004E89)
-
-### 3. **restaurants-data.js** (Restaurant Database)
-Contains all restaurant information:
-- **12 Restaurants**: With realistic Mumbai restaurant names
-- **Data Fields**: Name, area, cuisine, price, rating, emoji, address
-- **Areas Covered**: Bandra, Fort, Andheri, Thane, Powai, Southex
-- **Cuisines**: Italian, Indian, Chinese, Seafood, Continental, Fusion
-- **Price Categories**: Budget (₹), Mid-Range (₹₹₹), Premium (₹₹₹₹)
-
-### 4. **script.js** (Interactive Functionality)
-Main JavaScript file with filtering logic:
-- **displayRestaurants()**: Creates and displays restaurant cards
-- **filterRestaurants()**: Filters based on user selections
-- **resetFilters()**: Clears all filters
-- **getPriceSymbol()**: Converts price to rupee symbols
-- **Event Listeners**: Responds to user interactions
-
-## 🎨 Design Elements
-
-### Colors
-```
-Primary Orange: #FF6B35 (Vibrant, eye-catching)
-Secondary Blue: #004E89 (Professional, calm)
-Light Background: #F7F9FC (Clean, modern)
-White: #FFFFFF (Content areas)
+```bash
+python3 -m http.server 8000
 ```
 
-### Typography
-- **Font Family**: Segoe UI, Tahoma, Geneva (Professional)
-- **Headers**: Bold, larger sizes for hierarchy
-- **Body Text**: Readable, comfortable font size
+Then open `http://localhost:8000`.
 
-### Interactions
-- Cards lift up on hover (`transform: translateY`)
-- Shadow depth increases on hover
-- Buttons have scale effect on hover
-- Smooth transitions (0.3s) for all animations
+The app loads `restaurants.json` with `fetch`. It also includes a generated
+`restaurants-fallback.js` file so cards still appear when the site is opened
+directly from an extracted ZIP/folder.
 
-## 🚀 How to Use
+The restaurant photos use online image links, so you need internet access for the
+photos to appear. The app still works if the photos do not load.
 
-1. **Open in Browser**: Simply open `index.html` in any web browser
-2. **Filter Restaurants**: 
-   - Select an area from the Area dropdown
-   - Choose a cuisine type from the Cuisine dropdown
-   - Pick a price range from the Price dropdown
-3. **See Results**: Restaurant cards update instantly
-4. **Reset Filters**: Click the "Reset Filters" button to see all restaurants
+## File explanation
 
-## 💡 Beginner-Friendly Code Features
+### `index.html`
 
-✅ **Clear Comments**: Every function and section has explanatory comments
-✅ **Simple Logic**: Easy-to-understand filtering algorithm
-✅ **Modular Structure**: Separate files for data and functionality
-✅ **No Framework**: Pure HTML, CSS, JavaScript - no external libraries
-✅ **Semantic HTML**: Proper use of HTML5 semantic elements
-✅ **CSS Organization**: Variables and logical grouping
+This is the main page. It creates the app structure:
 
-## 📱 Responsive Breakpoints
+- A large hero section with the app title and description.
+- A premium hero preview card for a featured restaurant.
+- Small guide stats near the hero title.
+- A theme toggle button in the top navigation.
+- A link to the Collections page.
+- A filter panel with search, area, cuisine, price, occasion, dress code, and feature filters.
+- Quick area buttons for common filters like Bandra, BKC, Colaba, and Powai.
+- A "Saved only" button with a saved restaurant count.
+- Compare and recently viewed panels.
+- A Concierge panel with a dining-brief input, quick chips, and top 3 recommendations.
+- A reset button.
+- A results heading that tells the user how many restaurants are showing.
+- An empty state message for filter combinations with no matches.
+- Script tags that load `restaurants-fallback.js`, `data-store.js`, `assistant-data.js`, `script.js`, and `detail-modal.js`.
 
-- **Desktop**: Full grid with 3+ columns
-- **Tablet**: 2-column grid (768px and below)
-- **Mobile**: Single column layout (480px and below)
+### `styles.css`
 
-## 🎯 How to Extend
+This file controls the premium visual design:
 
-**Add More Restaurants**:
-```javascript
-// Add to restaurants-data.js
+- CSS variables in `:root` store reusable colors, shadows, and border radius values.
+- The hero uses layered gradients, glass effects, and a featured card.
+- CSS Grid lays out the filter panel and restaurant cards.
+- Cards use photos, hover effects, shadows, rounded corners, badges, card numbers, and price meters.
+- Concierge and collection cards reuse the same premium card language.
+- The detail modal, carousel, skeleton state, score cards, and nearby cards use the same palette and spacing system.
+- A `light-theme` body class changes the page into light mode.
+- Media queries make the layout adapt for tablets and phones.
+
+### `restaurants.json`
+
+This is the restaurant database. Adding a restaurant should only require editing
+this JSON file.
+
+Each restaurant object includes:
+
+- `name`
+- `area`
+- `cuisine`
+- `price`
+- `rating`
+- `emoji`
+- `address`
+- `description`
+- `highlight`
+- `photo`
+- `mapUrl`
+- `bookingUrl`
+- `orderUrl`
+- `averageSpend`
+- `perfectFor`
+- `mustOrder`
+- `curatedRating`
+- `tags`
+- `collections`
+- `occasions`
+- `dressCode`
+- `features`
+- `detail`
+
+Keeping the data separate makes it easy to add or edit restaurants without touching
+the filtering logic.
+
+### `data-store.js`
+
+This file loads `restaurants.json` once with `fetch` and exposes helper methods:
+
+- `loadRestaurants()`
+- `getRestaurantById()`
+- `getUniqueValues()`
+
+If a browser blocks local JSON loading, it falls back to `restaurants-fallback.js`.
+
+### `restaurants-fallback.js`
+
+This generated file mirrors `restaurants.json` so the site still works when opened
+directly from a local folder. Do not edit it by hand; edit `restaurants.json` as
+the source of truth.
+
+### `assistant-data.js`
+
+This file stores non-restaurant configuration:
+
+- Concierge quick chip labels and queries.
+- Collection names and descriptions.
+
+### `script.js`
+
+This file adds the interactivity:
+
+- Finds important HTML elements with `document.querySelector`.
+- Loads restaurant data through `data-store.js`.
+- Fills dropdowns using values from `restaurants.json`.
+- Searches restaurant names, areas, cuisines, dishes, occasions, and tags.
+- Lets quick chips update the area filter.
+- Builds restaurant card HTML with `createRestaurantCard`, including photo, save, book, order, map, and compare buttons.
+- Shows cards with `displayRestaurants`.
+- Filters restaurants with `filterRestaurants`.
+- Clears filters with `resetFilters`.
+- Saves favourite restaurants in `localStorage`.
+- Renders recently viewed restaurants from `localStorage`.
+- Compares two selected restaurants.
+- Remembers dark/light theme choice in `localStorage`.
+- Scores concierge recommendations with local JavaScript keyword matching only.
+- Renders the top 3 concierge recommendations.
+- Handles concierge quick chip clicks.
+- Adds restaurant IDs to rendered cards so the shared detail modal can open any restaurant.
+- Adds event listeners so the page reacts when dropdowns change.
+
+### `collections.html`
+
+This is the separate Collections page. It uses the same CSS, data files, and visual
+style as the main page. Each collection button filters restaurants automatically.
+
+### `collections.js`
+
+This file controls the Collections page:
+
+- Renders all collection buttons from `assistant-data.js`.
+- Filters restaurants by collection membership.
+- Reuses the same premium restaurant card structure.
+- Keeps the dark/light theme toggle working on the collections page.
+- Adds restaurant IDs to collection result cards so the shared detail modal works there too.
+
+### `detail-modal.js`
+
+This shared file powers the premium restaurant detail modal:
+
+- Opens when a restaurant or recommendation card is clicked.
+- Shows a loading skeleton before rendering details.
+- Builds a large hero image, editorial description, gallery carousel, curated scores, and planning notes.
+- Adds reservation, directions, call, and website buttons.
+- Shows nearby restaurants and lets those open in the same modal.
+- Supports Escape, previous/next gallery buttons, and thumbnail clicks.
+
+## How to add a restaurant
+
+Add a new object to the `restaurants` array in `restaurants.json`:
+
+```json
 {
-    id: 13,
-    name: "Your Restaurant",
-    area: "Your Area",
-    cuisine: "Your Cuisine",
-    price: "Budget/Mid-Range/Premium",
-    priceValue: 500,
-    rating: 4.5,
-    emoji: "🍕",
-    address: "Your Address"
+  "id": 19,
+  "name": "New Mumbai Spot",
+  "area": "Bandra",
+  "cuisine": "Italian",
+  "price": "Mid Range",
+  "rating": 4.4,
+  "emoji": "🍕",
+  "address": "Example Road, Mumbai",
+  "description": "Short description of the restaurant.",
+  "highlight": "Best for: pizza nights",
+  "photo": "https://example.com/photo.jpg",
+  "mapUrl": "https://www.google.com/maps/search/?api=1&query=New+Mumbai+Spot",
+  "bookingUrl": "https://www.google.com/search?q=New+Mumbai+Spot+book+table",
+  "orderUrl": "https://www.google.com/search?q=New+Mumbai+Spot+order+food"
 }
 ```
 
-**Add New Filter**:
-1. Add a new `<select>` in HTML
-2. Add options to the dropdown
-3. Create a new variable in JavaScript
-4. Add filter logic in `filterRestaurants()` function
-
-**Customize Colors**:
-Edit the CSS variables at the top of `styles.css`:
-```css
---primary-color: #FF6B35;  /* Change this */
---secondary-color: #004E89; /* Or this */
-```
-
-## 🔧 Browser Compatibility
-
-✅ Chrome (Latest)
-✅ Firefox (Latest)
-✅ Safari (Latest)
-✅ Edge (Latest)
-✅ Mobile Browsers
-
-## 📝 Code Comments Guide
-
-Each file contains detailed comments:
-- `// ========================` - Section dividers
-- `// FUNCTION: Name` - Function explanations
-- Inline comments explain complex logic
-
-## 🎓 Learning Resources
-
-This project teaches:
-- HTML5 semantic structure
-- CSS Grid and Flexbox
-- CSS custom properties (variables)
-- DOM manipulation with JavaScript
-- Event handling
-- Array filtering methods
-- String interpolation with template literals
-
-## 📞 Support
-
-Questions about the code? Check the inline comments in each file for detailed explanations!
-
----
-
-Made with ❤️ | Mumbai Eats 2024
+The cards, filters, search, collections, concierge, and detail modal read from
+`restaurants.json`.

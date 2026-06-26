@@ -1,0 +1,1254 @@
+{
+  "restaurants": [
+    {
+      "id": 1,
+      "name": "Bastian Bay",
+      "area": "Bandra",
+      "cuisine": "Seafood",
+      "price": "Luxury",
+      "rating": 4.8,
+      "emoji": "🦞",
+      "address": "Waterfield Road, Bandra West",
+      "description": "A glamorous seafood spot known for lobster plates, sushi, and celebration dinners.",
+      "highlight": "Best for: special occasions",
+      "photo": "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=80",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Bastian+Bandra+Mumbai",
+      "bookingUrl": "https://www.google.com/search?q=Bastian+Bandra+Mumbai+book+table",
+      "orderUrl": "https://www.google.com/search?q=Bastian+Bandra+Mumbai+order+food",
+      "averageSpend": "₹6,000 for two",
+      "spendValue": 6000,
+      "perfectFor": "Anniversary dinners, seafood dates, luxury celebrations",
+      "mustOrder": "Lobster thermidor and sushi platters",
+      "curatedRating": 9.4,
+      "tags": [
+        "date night",
+        "anniversary",
+        "romantic",
+        "seafood",
+        "luxury",
+        "celebrity",
+        "late night",
+        "wine",
+        "rooftop",
+        "skyline"
+      ],
+      "collections": [
+        "date-nights",
+        "luxury-dining",
+        "celebrity-favorites",
+        "best-rooftops"
+      ],
+      "occasions": [
+        "date night",
+        "anniversary",
+        "romantic",
+        "late night"
+      ],
+      "dressCode": "Smart elegant",
+      "features": {
+        "outdoorSeating": true,
+        "liveMusic": false,
+        "petFriendly": false,
+        "vegetarianFriendly": false,
+        "valetParking": true
+      },
+      "detail": {
+        "editorialDescription": "Bastian Bay is the kind of Mumbai table that earns its place through mood as much as food. A glamorous seafood spot known for lobster plates, sushi, and celebration dinners. The room works especially well for anniversary dinners, seafood dates, luxury celebrations, with a signature order of lobster thermidor and sushi platters.",
+        "gallery": [
+          "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?auto=format&fit=crop&w=1200&q=80"
+        ],
+        "scores": {
+          "food": 9.6,
+          "ambience": 9.7,
+          "service": 9.5,
+          "luxuryFeel": 9.7,
+          "dateNight": 9.7,
+          "instagramWorthiness": 9.6
+        },
+        "bestTableTip": "Ask for a terrace-edge table around golden hour.",
+        "parkingValet": "Valet usually available",
+        "openingHours": "12:00 PM - 1:00 AM",
+        "phone": "+91 22 4001 7037",
+        "websiteUrl": "https://www.google.com/search?q=Bastian%20Bay%20Bandra%20official%20website"
+      }
+    },
+    {
+      "id": 2,
+      "name": "The Bombay Canteen",
+      "area": "Lower Parel",
+      "cuisine": "Modern Indian",
+      "price": "Premium",
+      "rating": 4.7,
+      "emoji": "🥘",
+      "address": "Kamala Mills, Lower Parel",
+      "description": "Playful regional Indian food served in a warm, polished dining room.",
+      "highlight": "Best for: inventive Indian plates",
+      "photo": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=900&q=80",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=The+Bombay+Canteen+Lower+Parel+Mumbai",
+      "bookingUrl": "https://www.google.com/search?q=The+Bombay+Canteen+book+table",
+      "orderUrl": "https://www.google.com/search?q=The+Bombay+Canteen+order+food",
+      "averageSpend": "₹4,500 for two",
+      "spendValue": 4500,
+      "perfectFor": "Modern Indian dinners, visiting friends, business-hosted meals",
+      "mustOrder": "Seasonal small plates and regional cocktails",
+      "curatedRating": 9.3,
+      "tags": [
+        "business",
+        "modern indian",
+        "brunch",
+        "premium",
+        "wine",
+        "celebrity",
+        "date night"
+      ],
+      "collections": [
+        "luxury-dining",
+        "celebrity-favorites",
+        "best-brunch",
+        "business-dining"
+      ],
+      "occasions": [
+        "business",
+        "brunch",
+        "date night"
+      ],
+      "dressCode": "Smart casual",
+      "features": {
+        "outdoorSeating": false,
+        "liveMusic": false,
+        "petFriendly": false,
+        "vegetarianFriendly": true,
+        "valetParking": true
+      },
+      "detail": {
+        "editorialDescription": "The Bombay Canteen is the kind of Mumbai table that earns its place through mood as much as food. Playful regional Indian food served in a warm, polished dining room. The room works especially well for modern indian dinners, visiting friends, business-hosted meals, with a signature order of seasonal small plates and regional cocktails.",
+        "gallery": [
+          "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1200&q=80"
+        ],
+        "scores": {
+          "food": 9.5,
+          "ambience": 9.3,
+          "service": 9.2,
+          "luxuryFeel": 9.1,
+          "dateNight": 9.6,
+          "instagramWorthiness": 9.5
+        },
+        "bestTableTip": "Request a corner table away from the main service path.",
+        "parkingValet": "Valet usually available",
+        "openingHours": "12:00 PM - 11:30 PM",
+        "phone": "+91 22 4002 7074",
+        "websiteUrl": "https://www.google.com/search?q=The%20Bombay%20Canteen%20Lower%20Parel%20official%20website"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Leopold Cafe",
+      "area": "Colaba",
+      "cuisine": "Cafe",
+      "price": "Mid Range",
+      "rating": 4.3,
+      "emoji": "☕",
+      "address": "Colaba Causeway, Colaba",
+      "description": "A classic Mumbai cafe with comfort food, quick service, and old-city energy.",
+      "highlight": "Best for: tourists and groups",
+      "photo": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=80",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Leopold+Cafe+Colaba+Mumbai",
+      "bookingUrl": "https://www.google.com/search?q=Leopold+Cafe+Mumbai+book+table",
+      "orderUrl": "https://www.google.com/search?q=Leopold+Cafe+Mumbai+order+food",
+      "averageSpend": "₹2,200 for two",
+      "spendValue": 2200,
+      "perfectFor": "Casual groups, Colaba walks, old-school Mumbai energy",
+      "mustOrder": "Chilli cheese toast and classic cafe plates",
+      "curatedRating": 8.5,
+      "tags": [
+        "hidden gems",
+        "family",
+        "cafe",
+        "under 3000",
+        "late night",
+        "colaba"
+      ],
+      "collections": [
+        "hidden-gems",
+        "under-3000",
+        "late-night"
+      ],
+      "occasions": [
+        "hidden gems",
+        "family",
+        "late night"
+      ],
+      "dressCode": "Relaxed casual",
+      "features": {
+        "outdoorSeating": false,
+        "liveMusic": true,
+        "petFriendly": false,
+        "vegetarianFriendly": true,
+        "valetParking": false
+      },
+      "detail": {
+        "editorialDescription": "Leopold Cafe is the kind of Mumbai table that earns its place through mood as much as food. A classic Mumbai cafe with comfort food, quick service, and old-city energy. The room works especially well for casual groups, colaba walks, old-school mumbai energy, with a signature order of chilli cheese toast and classic cafe plates.",
+        "gallery": [
+          "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1200&q=80"
+        ],
+        "scores": {
+          "food": 8.7,
+          "ambience": 8.5,
+          "service": 8.4,
+          "luxuryFeel": 8.3,
+          "dateNight": 8.4,
+          "instagramWorthiness": 8.3
+        },
+        "bestTableTip": "Choose an early dinner slot for the smoothest service.",
+        "parkingValet": "Street parking nearby; arrive early",
+        "openingHours": "8:00 AM - 11:30 PM",
+        "phone": "+91 22 4003 7111",
+        "websiteUrl": "https://www.google.com/search?q=Leopold%20Cafe%20Colaba%20official%20website"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Trishna",
+      "area": "Fort",
+      "cuisine": "Seafood",
+      "price": "Premium",
+      "rating": 4.6,
+      "emoji": "🦀",
+      "address": "Sai Baba Marg, Fort",
+      "description": "Beloved coastal restaurant famous for butter garlic crab and fish fry.",
+      "highlight": "Best for: coastal flavours",
+      "photo": "https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=900&q=80",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Trishna+Fort+Mumbai",
+      "bookingUrl": "https://www.google.com/search?q=Trishna+Fort+Mumbai+book+table",
+      "orderUrl": "https://www.google.com/search?q=Trishna+Fort+Mumbai+order+food",
+      "averageSpend": "₹4,200 for two",
+      "spendValue": 4200,
+      "perfectFor": "Coastal dinners, family seafood meals, old Mumbai classics",
+      "mustOrder": "Butter garlic crab",
+      "curatedRating": 9.1,
+      "tags": [
+        "seafood",
+        "family",
+        "business",
+        "premium",
+        "hidden gems",
+        "fort"
+      ],
+      "collections": [
+        "celebrity-favorites",
+        "family-picks",
+        "hidden-gems"
+      ],
+      "occasions": [
+        "family",
+        "business",
+        "hidden gems"
+      ],
+      "dressCode": "Smart casual",
+      "features": {
+        "outdoorSeating": false,
+        "liveMusic": false,
+        "petFriendly": false,
+        "vegetarianFriendly": false,
+        "valetParking": false
+      },
+      "detail": {
+        "editorialDescription": "Trishna is the kind of Mumbai table that earns its place through mood as much as food. Beloved coastal restaurant famous for butter garlic crab and fish fry. The room works especially well for coastal dinners, family seafood meals, old mumbai classics, with a signature order of butter garlic crab.",
+        "gallery": [
+          "https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?auto=format&fit=crop&w=1200&q=80"
+        ],
+        "scores": {
+          "food": 9.3,
+          "ambience": 9.1,
+          "service": 9,
+          "luxuryFeel": 8.9,
+          "dateNight": 9,
+          "instagramWorthiness": 8.9
+        },
+        "bestTableTip": "Book a quieter table along the wall for easier conversation.",
+        "parkingValet": "Street parking nearby; arrive early",
+        "openingHours": "12:00 PM - 11:30 PM",
+        "phone": "+91 22 4004 7148",
+        "websiteUrl": "https://www.google.com/search?q=Trishna%20Fort%20official%20website"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Prithvi Cafe",
+      "area": "Juhu",
+      "cuisine": "Cafe",
+      "price": "Budget",
+      "rating": 4.4,
+      "emoji": "🍵",
+      "address": "Janki Kutir, Juhu",
+      "description": "A relaxed courtyard cafe with theatre crowd charm, chai, and snacks.",
+      "highlight": "Best for: casual evenings",
+      "photo": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Prithvi+Cafe+Juhu+Mumbai",
+      "bookingUrl": "https://www.google.com/search?q=Prithvi+Cafe+Juhu+book+table",
+      "orderUrl": "https://www.google.com/search?q=Prithvi+Cafe+Juhu+order+food",
+      "averageSpend": "₹1,600 for two",
+      "spendValue": 1600,
+      "perfectFor": "Brunch, theatre evenings, casual dates in Juhu",
+      "mustOrder": "Irish coffee, parathas, and cutting chai",
+      "curatedRating": 8.8,
+      "tags": [
+        "brunch",
+        "juhu",
+        "date night",
+        "cafe",
+        "under 3000",
+        "hidden gems"
+      ],
+      "collections": [
+        "best-brunch",
+        "hidden-gems",
+        "under-3000",
+        "date-nights"
+      ],
+      "occasions": [
+        "brunch",
+        "date night",
+        "hidden gems"
+      ],
+      "dressCode": "Relaxed casual",
+      "features": {
+        "outdoorSeating": true,
+        "liveMusic": true,
+        "petFriendly": true,
+        "vegetarianFriendly": true,
+        "valetParking": true
+      },
+      "detail": {
+        "editorialDescription": "Prithvi Cafe is the kind of Mumbai table that earns its place through mood as much as food. A relaxed courtyard cafe with theatre crowd charm, chai, and snacks. The room works especially well for brunch, theatre evenings, casual dates in juhu, with a signature order of irish coffee, parathas, and cutting chai.",
+        "gallery": [
+          "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1200&q=80"
+        ],
+        "scores": {
+          "food": 9,
+          "ambience": 8.8,
+          "service": 8.7,
+          "luxuryFeel": 8.6,
+          "dateNight": 9.1,
+          "instagramWorthiness": 8.6
+        },
+        "bestTableTip": "Request a corner table away from the main service path.",
+        "parkingValet": "Valet usually available",
+        "openingHours": "8:00 AM - 11:30 PM",
+        "phone": "+91 22 4005 7185",
+        "websiteUrl": "https://www.google.com/search?q=Prithvi%20Cafe%20Juhu%20official%20website"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Yauatcha Mumbai",
+      "area": "BKC",
+      "cuisine": "Chinese",
+      "price": "Luxury",
+      "rating": 4.5,
+      "emoji": "🥟",
+      "address": "Raheja Tower, Bandra Kurla Complex",
+      "description": "Premium dim sum, tea, and Cantonese-style dishes in a sleek dining room.",
+      "highlight": "Best for: dim sum lunches",
+      "photo": "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?auto=format&fit=crop&w=900&q=80",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Yauatcha+BKC+Mumbai",
+      "bookingUrl": "https://www.google.com/search?q=Yauatcha+Mumbai+book+table",
+      "orderUrl": "https://www.google.com/search?q=Yauatcha+Mumbai+order+food",
+      "averageSpend": "₹5,800 for two",
+      "spendValue": 5800,
+      "perfectFor": "Business lunches, dim sum dates, polished BKC evenings",
+      "mustOrder": "Truffle edamame dumplings",
+      "curatedRating": 9,
+      "tags": [
+        "business",
+        "bkc",
+        "chinese",
+        "luxury",
+        "wine",
+        "date night"
+      ],
+      "collections": [
+        "luxury-dining",
+        "business-dining",
+        "date-nights"
+      ],
+      "occasions": [
+        "business",
+        "date night"
+      ],
+      "dressCode": "Smart elegant",
+      "features": {
+        "outdoorSeating": false,
+        "liveMusic": false,
+        "petFriendly": false,
+        "vegetarianFriendly": false,
+        "valetParking": true
+      },
+      "detail": {
+        "editorialDescription": "Yauatcha Mumbai is the kind of Mumbai table that earns its place through mood as much as food. Premium dim sum, tea, and Cantonese-style dishes in a sleek dining room. The room works especially well for business lunches, dim sum dates, polished bkc evenings, with a signature order of truffle edamame dumplings.",
+        "gallery": [
+          "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80"
+        ],
+        "scores": {
+          "food": 9.2,
+          "ambience": 9.3,
+          "service": 9.1,
+          "luxuryFeel": 9.3,
+          "dateNight": 9.3,
+          "instagramWorthiness": 8.8
+        },
+        "bestTableTip": "Request a corner table away from the main service path.",
+        "parkingValet": "Valet usually available",
+        "openingHours": "12:00 PM - 11:30 PM",
+        "phone": "+91 22 4006 7222",
+        "websiteUrl": "https://www.google.com/search?q=Yauatcha%20Mumbai%20BKC%20official%20website"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Cafe Madras",
+      "area": "Dadar",
+      "cuisine": "South Indian",
+      "price": "Budget",
+      "rating": 4.6,
+      "emoji": "🥞",
+      "address": "Bhaudaji Road, Matunga East",
+      "description": "A legendary spot for crisp dosas, filter coffee, and old-school service.",
+      "highlight": "Best for: breakfast",
+      "photo": "https://images.unsplash.com/photo-1630383249896-424e482df921?auto=format&fit=crop&w=900&q=80",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Cafe+Madras+Matunga+Mumbai",
+      "bookingUrl": "https://www.google.com/search?q=Cafe+Madras+Matunga+book+table",
+      "orderUrl": "https://www.google.com/search?q=Cafe+Madras+Matunga+order+food",
+      "averageSpend": "₹900 for two",
+      "spendValue": 900,
+      "perfectFor": "Breakfast runs, family mornings, budget food walks",
+      "mustOrder": "Masala dosa and filter coffee",
+      "curatedRating": 9,
+      "tags": [
+        "family",
+        "hidden gems",
+        "under 3000",
+        "breakfast",
+        "south indian",
+        "brunch"
+      ],
+      "collections": [
+        "hidden-gems",
+        "under-3000",
+        "best-brunch",
+        "family-picks"
+      ],
+      "occasions": [
+        "family",
+        "hidden gems",
+        "brunch"
+      ],
+      "dressCode": "Relaxed casual",
+      "features": {
+        "outdoorSeating": false,
+        "liveMusic": false,
+        "petFriendly": true,
+        "vegetarianFriendly": true,
+        "valetParking": false
+      },
+      "detail": {
+        "editorialDescription": "Cafe Madras is the kind of Mumbai table that earns its place through mood as much as food. A legendary spot for crisp dosas, filter coffee, and old-school service. The room works especially well for breakfast runs, family mornings, budget food walks, with a signature order of masala dosa and filter coffee.",
+        "gallery": [
+          "https://images.unsplash.com/photo-1630383249896-424e482df921?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1200&q=80"
+        ],
+        "scores": {
+          "food": 9.2,
+          "ambience": 9,
+          "service": 8.9,
+          "luxuryFeel": 8.8,
+          "dateNight": 8.9,
+          "instagramWorthiness": 8.8
+        },
+        "bestTableTip": "Choose an early dinner slot for the smoothest service.",
+        "parkingValet": "Street parking nearby; arrive early",
+        "openingHours": "8:00 AM - 11:30 PM",
+        "phone": "+91 22 4007 7259",
+        "websiteUrl": "https://www.google.com/search?q=Cafe%20Madras%20Dadar%20official%20website"
+      }
+    },
+    {
+      "id": 8,
+      "name": "CinCin",
+      "area": "BKC",
+      "cuisine": "Italian",
+      "price": "Premium",
+      "rating": 4.5,
+      "emoji": "🍝",
+      "address": "G Block, Bandra Kurla Complex",
+      "description": "A stylish Italian restaurant serving handmade pasta, pizzas, and aperitivo drinks.",
+      "highlight": "Best for: date nights",
+      "photo": "https://images.unsplash.com/photo-1498579150354-977475b7ea0b?auto=format&fit=crop&w=900&q=80",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=CinCin+BKC+Mumbai",
+      "bookingUrl": "https://www.google.com/search?q=CinCin+BKC+book+table",
+      "orderUrl": "https://www.google.com/search?q=CinCin+BKC+order+food",
+      "averageSpend": "₹4,800 for two",
+      "spendValue": 4800,
+      "perfectFor": "Romantic Italian, date nights, wine-led dinners",
+      "mustOrder": "Handmade pasta and tiramisu",
+      "curatedRating": 9,
+      "tags": [
+        "italian",
+        "romantic",
+        "date night",
+        "wine",
+        "bkc",
+        "premium"
+      ],
+      "collections": [
+        "date-nights",
+        "italian-picks",
+        "business-dining"
+      ],
+      "occasions": [
+        "romantic",
+        "date night"
+      ],
+      "dressCode": "Smart casual",
+      "features": {
+        "outdoorSeating": false,
+        "liveMusic": false,
+        "petFriendly": false,
+        "vegetarianFriendly": true,
+        "valetParking": true
+      },
+      "detail": {
+        "editorialDescription": "CinCin is the kind of Mumbai table that earns its place through mood as much as food. A stylish Italian restaurant serving handmade pasta, pizzas, and aperitivo drinks. The room works especially well for romantic italian, date nights, wine-led dinners, with a signature order of handmade pasta and tiramisu.",
+        "gallery": [
+          "https://images.unsplash.com/photo-1498579150354-977475b7ea0b?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1498579150354-977475b7ea0b?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1200&q=80"
+        ],
+        "scores": {
+          "food": 9.2,
+          "ambience": 9,
+          "service": 8.9,
+          "luxuryFeel": 8.8,
+          "dateNight": 9.3,
+          "instagramWorthiness": 8.8
+        },
+        "bestTableTip": "Request a corner table away from the main service path.",
+        "parkingValet": "Valet usually available",
+        "openingHours": "12:00 PM - 11:30 PM",
+        "phone": "+91 22 4008 7296",
+        "websiteUrl": "https://www.google.com/search?q=CinCin%20BKC%20official%20website"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Gajalee",
+      "area": "Andheri",
+      "cuisine": "Seafood",
+      "price": "Mid Range",
+      "rating": 4.4,
+      "emoji": "🐟",
+      "address": "Hanuman Road, Vile Parle East",
+      "description": "Reliable Malvani seafood with thalis, sol kadhi, and fresh fish specials.",
+      "highlight": "Best for: family meals",
+      "photo": "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?auto=format&fit=crop&w=900&q=80",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Gajalee+Vile+Parle+Mumbai",
+      "bookingUrl": "https://www.google.com/search?q=Gajalee+Mumbai+book+table",
+      "orderUrl": "https://www.google.com/search?q=Gajalee+Mumbai+order+food",
+      "averageSpend": "₹2,600 for two",
+      "spendValue": 2600,
+      "perfectFor": "Family seafood meals and relaxed weekend lunches",
+      "mustOrder": "Bombil fry and seafood thali",
+      "curatedRating": 8.7,
+      "tags": [
+        "family",
+        "seafood",
+        "under 3000",
+        "andheri",
+        "hidden gems"
+      ],
+      "collections": [
+        "family-picks",
+        "under-3000",
+        "hidden-gems"
+      ],
+      "occasions": [
+        "family",
+        "hidden gems"
+      ],
+      "dressCode": "Relaxed casual",
+      "features": {
+        "outdoorSeating": false,
+        "liveMusic": false,
+        "petFriendly": false,
+        "vegetarianFriendly": false,
+        "valetParking": false
+      },
+      "detail": {
+        "editorialDescription": "Gajalee is the kind of Mumbai table that earns its place through mood as much as food. Reliable Malvani seafood with thalis, sol kadhi, and fresh fish specials. The room works especially well for family seafood meals and relaxed weekend lunches, with a signature order of bombil fry and seafood thali.",
+        "gallery": [
+          "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?auto=format&fit=crop&w=1200&q=80"
+        ],
+        "scores": {
+          "food": 8.9,
+          "ambience": 8.7,
+          "service": 8.6,
+          "luxuryFeel": 8.5,
+          "dateNight": 8.6,
+          "instagramWorthiness": 8.5
+        },
+        "bestTableTip": "Choose an early dinner slot for the smoothest service.",
+        "parkingValet": "Street parking nearby; arrive early",
+        "openingHours": "12:00 PM - 11:30 PM",
+        "phone": "+91 22 4009 7333",
+        "websiteUrl": "https://www.google.com/search?q=Gajalee%20Andheri%20official%20website"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Mirchi & Mime",
+      "area": "Powai",
+      "cuisine": "North Indian",
+      "price": "Mid Range",
+      "rating": 4.7,
+      "emoji": "🍛",
+      "address": "Transocean House, Powai",
+      "description": "Modern North Indian plates in a welcoming restaurant with thoughtful service.",
+      "highlight": "Best for: lively dinners",
+      "photo": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=900&q=80",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Mirchi+and+Mime+Powai+Mumbai",
+      "bookingUrl": "https://www.google.com/search?q=Mirchi+and+Mime+Powai+book+table",
+      "orderUrl": "https://www.google.com/search?q=Mirchi+and+Mime+Powai+order+food",
+      "averageSpend": "₹2,800 for two",
+      "spendValue": 2800,
+      "perfectFor": "Family dinners, Powai dates, lively North Indian meals",
+      "mustOrder": "Galouti kebab and dal makhani",
+      "curatedRating": 9.2,
+      "tags": [
+        "family",
+        "powai",
+        "date night",
+        "business",
+        "under 3000",
+        "north indian"
+      ],
+      "collections": [
+        "date-nights",
+        "family-picks",
+        "under-3000",
+        "business-dining"
+      ],
+      "occasions": [
+        "family",
+        "date night",
+        "business"
+      ],
+      "dressCode": "Relaxed casual",
+      "features": {
+        "outdoorSeating": true,
+        "liveMusic": false,
+        "petFriendly": false,
+        "vegetarianFriendly": false,
+        "valetParking": true
+      },
+      "detail": {
+        "editorialDescription": "Mirchi & Mime is the kind of Mumbai table that earns its place through mood as much as food. Modern North Indian plates in a welcoming restaurant with thoughtful service. The room works especially well for family dinners, powai dates, lively north indian meals, with a signature order of galouti kebab and dal makhani.",
+        "gallery": [
+          "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1200&q=80"
+        ],
+        "scores": {
+          "food": 9.4,
+          "ambience": 9.2,
+          "service": 9.1,
+          "luxuryFeel": 9,
+          "dateNight": 9.5,
+          "instagramWorthiness": 9
+        },
+        "bestTableTip": "Request a corner table away from the main service path.",
+        "parkingValet": "Valet usually available",
+        "openingHours": "12:00 PM - 11:30 PM",
+        "phone": "+91 22 4010 7370",
+        "websiteUrl": "https://www.google.com/search?q=Mirchi%20%26%20Mime%20Powai%20official%20website"
+      }
+    },
+    {
+      "id": 11,
+      "name": "Soam",
+      "area": "Girgaon",
+      "cuisine": "Gujarati",
+      "price": "Budget",
+      "rating": 4.5,
+      "emoji": "🍲",
+      "address": "Babulnath Road, Girgaon",
+      "description": "Comforting vegetarian food with dhokla, farsan, thalis, and seasonal specials.",
+      "highlight": "Best for: vegetarian meals",
+      "photo": "https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=900&q=80",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Soam+Girgaon+Mumbai",
+      "bookingUrl": "https://www.google.com/search?q=Soam+Mumbai+book+table",
+      "orderUrl": "https://www.google.com/search?q=Soam+Mumbai+order+food",
+      "averageSpend": "₹1,500 for two",
+      "spendValue": 1500,
+      "perfectFor": "Vegetarian meals, family lunches, comfort food",
+      "mustOrder": "Farsan platter and aamras thali",
+      "curatedRating": 8.8,
+      "tags": [
+        "family",
+        "vegetarian",
+        "under 3000",
+        "hidden gems",
+        "brunch"
+      ],
+      "collections": [
+        "family-picks",
+        "under-3000",
+        "hidden-gems",
+        "best-brunch"
+      ],
+      "occasions": [
+        "family",
+        "hidden gems",
+        "brunch"
+      ],
+      "dressCode": "Relaxed casual",
+      "features": {
+        "outdoorSeating": false,
+        "liveMusic": false,
+        "petFriendly": false,
+        "vegetarianFriendly": true,
+        "valetParking": false
+      },
+      "detail": {
+        "editorialDescription": "Soam is the kind of Mumbai table that earns its place through mood as much as food. Comforting vegetarian food with dhokla, farsan, thalis, and seasonal specials. The room works especially well for vegetarian meals, family lunches, comfort food, with a signature order of farsan platter and aamras thali.",
+        "gallery": [
+          "https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1200&q=80"
+        ],
+        "scores": {
+          "food": 9,
+          "ambience": 8.8,
+          "service": 8.7,
+          "luxuryFeel": 8.6,
+          "dateNight": 8.7,
+          "instagramWorthiness": 8.6
+        },
+        "bestTableTip": "Choose an early dinner slot for the smoothest service.",
+        "parkingValet": "Street parking nearby; arrive early",
+        "openingHours": "12:00 PM - 11:30 PM",
+        "phone": "+91 22 4011 7407",
+        "websiteUrl": "https://www.google.com/search?q=Soam%20Girgaon%20official%20website"
+      }
+    },
+    {
+      "id": 12,
+      "name": "Izumi",
+      "area": "Bandra",
+      "cuisine": "Japanese",
+      "price": "Premium",
+      "rating": 4.6,
+      "emoji": "🍣",
+      "address": "Pali Hill, Bandra West",
+      "description": "A compact, high-quality Japanese restaurant loved for ramen, sushi, and small plates.",
+      "highlight": "Best for: ramen cravings",
+      "photo": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=900&q=80",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Izumi+Bandra+Mumbai",
+      "bookingUrl": "https://www.google.com/search?q=Izumi+Bandra+book+table",
+      "orderUrl": "https://www.google.com/search?q=Izumi+Bandra+order+food",
+      "averageSpend": "₹4,000 for two",
+      "spendValue": 4000,
+      "perfectFor": "Japanese dates, ramen cravings, compact premium dinners",
+      "mustOrder": "Tonkotsu ramen and sushi rolls",
+      "curatedRating": 9.1,
+      "tags": [
+        "japanese",
+        "bandra",
+        "date night",
+        "romantic",
+        "premium",
+        "hidden gems"
+      ],
+      "collections": [
+        "japanese-picks",
+        "date-nights",
+        "hidden-gems"
+      ],
+      "occasions": [
+        "date night",
+        "romantic",
+        "hidden gems"
+      ],
+      "dressCode": "Smart casual",
+      "features": {
+        "outdoorSeating": true,
+        "liveMusic": false,
+        "petFriendly": false,
+        "vegetarianFriendly": false,
+        "valetParking": true
+      },
+      "detail": {
+        "editorialDescription": "Izumi is the kind of Mumbai table that earns its place through mood as much as food. A compact, high-quality Japanese restaurant loved for ramen, sushi, and small plates. The room works especially well for japanese dates, ramen cravings, compact premium dinners, with a signature order of tonkotsu ramen and sushi rolls.",
+        "gallery": [
+          "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?auto=format&fit=crop&w=1200&q=80"
+        ],
+        "scores": {
+          "food": 9.3,
+          "ambience": 9.1,
+          "service": 9,
+          "luxuryFeel": 8.9,
+          "dateNight": 9.4,
+          "instagramWorthiness": 8.9
+        },
+        "bestTableTip": "Request a corner table away from the main service path.",
+        "parkingValet": "Valet usually available",
+        "openingHours": "12:00 PM - 11:30 PM",
+        "phone": "+91 22 4012 7444",
+        "websiteUrl": "https://www.google.com/search?q=Izumi%20Bandra%20official%20website"
+      }
+    },
+    {
+      "id": 13,
+      "name": "Masque",
+      "area": "Mahalaxmi",
+      "cuisine": "Tasting Menu",
+      "price": "Luxury",
+      "rating": 4.8,
+      "emoji": "🍽️",
+      "address": "Laxmi Mills, Mahalaxmi",
+      "description": "A refined tasting-menu restaurant with seasonal Indian ingredients and dramatic plating.",
+      "highlight": "Best for: chef's menu nights",
+      "photo": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Masque+Mahalaxmi+Mumbai",
+      "bookingUrl": "https://www.google.com/search?q=Masque+Mumbai+book+table",
+      "orderUrl": "https://www.google.com/search?q=Masque+Mumbai+order+food",
+      "averageSpend": "₹8,500 for two",
+      "spendValue": 8500,
+      "perfectFor": "Luxury tasting menus, anniversaries, chef-led celebrations",
+      "mustOrder": "Seasonal tasting menu",
+      "curatedRating": 9.6,
+      "tags": [
+        "luxury",
+        "anniversary",
+        "date night",
+        "wine",
+        "celebrity",
+        "new openings",
+        "rooftop",
+        "skyline"
+      ],
+      "collections": [
+        "luxury-dining",
+        "date-nights",
+        "celebrity-favorites",
+        "best-rooftops"
+      ],
+      "occasions": [
+        "anniversary",
+        "date night"
+      ],
+      "dressCode": "Smart elegant",
+      "features": {
+        "outdoorSeating": true,
+        "liveMusic": false,
+        "petFriendly": false,
+        "vegetarianFriendly": false,
+        "valetParking": true
+      },
+      "detail": {
+        "editorialDescription": "Masque is the kind of Mumbai table that earns its place through mood as much as food. A refined tasting-menu restaurant with seasonal Indian ingredients and dramatic plating. The room works especially well for luxury tasting menus, anniversaries, chef-led celebrations, with a signature order of seasonal tasting menu.",
+        "gallery": [
+          "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80"
+        ],
+        "scores": {
+          "food": 9.8,
+          "ambience": 9.9,
+          "service": 9.7,
+          "luxuryFeel": 9.9,
+          "dateNight": 9.9,
+          "instagramWorthiness": 9.8
+        },
+        "bestTableTip": "Ask for a terrace-edge table around golden hour.",
+        "parkingValet": "Valet usually available",
+        "openingHours": "12:00 PM - 11:30 PM",
+        "phone": "+91 22 4013 7481",
+        "websiteUrl": "https://www.google.com/search?q=Masque%20Mahalaxmi%20official%20website"
+      }
+    },
+    {
+      "id": 14,
+      "name": "Americano",
+      "area": "Fort",
+      "cuisine": "Italian",
+      "price": "Premium",
+      "rating": 4.6,
+      "emoji": "🍕",
+      "address": "Kala Ghoda, Fort",
+      "description": "A polished neighbourhood restaurant for pizza, pasta, cocktails, and weekend brunch.",
+      "highlight": "Best for: brunch plans",
+      "photo": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=900&q=80",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Americano+Kala+Ghoda+Mumbai",
+      "bookingUrl": "https://www.google.com/search?q=Americano+Mumbai+book+table",
+      "orderUrl": "https://www.google.com/search?q=Americano+Mumbai+order+food",
+      "averageSpend": "₹4,600 for two",
+      "spendValue": 4600,
+      "perfectFor": "Italian brunch, polished dates, wine and pizza nights",
+      "mustOrder": "Neapolitan pizza and burrata",
+      "curatedRating": 9,
+      "tags": [
+        "italian",
+        "brunch",
+        "wine",
+        "date night",
+        "fort",
+        "premium",
+        "rooftop"
+      ],
+      "collections": [
+        "italian-picks",
+        "best-brunch",
+        "date-nights",
+        "best-rooftops"
+      ],
+      "occasions": [
+        "brunch",
+        "date night"
+      ],
+      "dressCode": "Smart casual",
+      "features": {
+        "outdoorSeating": true,
+        "liveMusic": true,
+        "petFriendly": false,
+        "vegetarianFriendly": true,
+        "valetParking": false
+      },
+      "detail": {
+        "editorialDescription": "Americano is the kind of Mumbai table that earns its place through mood as much as food. A polished neighbourhood restaurant for pizza, pasta, cocktails, and weekend brunch. The room works especially well for italian brunch, polished dates, wine and pizza nights, with a signature order of neapolitan pizza and burrata.",
+        "gallery": [
+          "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1498579150354-977475b7ea0b?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1200&q=80"
+        ],
+        "scores": {
+          "food": 9.2,
+          "ambience": 9,
+          "service": 8.9,
+          "luxuryFeel": 8.8,
+          "dateNight": 9.3,
+          "instagramWorthiness": 9.2
+        },
+        "bestTableTip": "Ask for a terrace-edge table around golden hour.",
+        "parkingValet": "Street parking nearby; arrive early",
+        "openingHours": "12:00 PM - 11:30 PM",
+        "phone": "+91 22 4014 7518",
+        "websiteUrl": "https://www.google.com/search?q=Americano%20Fort%20official%20website"
+      }
+    },
+    {
+      "id": 15,
+      "name": "O Pedro",
+      "area": "BKC",
+      "cuisine": "Goan",
+      "price": "Premium",
+      "rating": 4.7,
+      "emoji": "🍤",
+      "address": "Jet Airways Godrej BKC, BKC",
+      "description": "Bright Goan flavours, seafood plates, and cocktails in a lively room.",
+      "highlight": "Best for: group celebrations",
+      "photo": "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=900&q=80",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=O+Pedro+BKC+Mumbai",
+      "bookingUrl": "https://www.google.com/search?q=O+Pedro+BKC+book+table",
+      "orderUrl": "https://www.google.com/search?q=O+Pedro+BKC+order+food",
+      "averageSpend": "₹4,400 for two",
+      "spendValue": 4400,
+      "perfectFor": "BKC group dinners, Goan seafood, celebratory cocktails",
+      "mustOrder": "Prawn balchao and poee",
+      "curatedRating": 9.2,
+      "tags": [
+        "bkc",
+        "business",
+        "brunch",
+        "wine",
+        "celebrity",
+        "new openings",
+        "seafood"
+      ],
+      "collections": [
+        "celebrity-favorites",
+        "best-brunch",
+        "business-dining",
+        "new-openings"
+      ],
+      "occasions": [
+        "business",
+        "brunch"
+      ],
+      "dressCode": "Smart casual",
+      "features": {
+        "outdoorSeating": false,
+        "liveMusic": true,
+        "petFriendly": false,
+        "vegetarianFriendly": false,
+        "valetParking": true
+      },
+      "detail": {
+        "editorialDescription": "O Pedro is the kind of Mumbai table that earns its place through mood as much as food. Bright Goan flavours, seafood plates, and cocktails in a lively room. The room works especially well for bkc group dinners, goan seafood, celebratory cocktails, with a signature order of prawn balchao and poee.",
+        "gallery": [
+          "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?auto=format&fit=crop&w=1200&q=80"
+        ],
+        "scores": {
+          "food": 9.4,
+          "ambience": 9.2,
+          "service": 9.1,
+          "luxuryFeel": 9,
+          "dateNight": 9.1,
+          "instagramWorthiness": 9.4
+        },
+        "bestTableTip": "Book a quieter table along the wall for easier conversation.",
+        "parkingValet": "Valet usually available",
+        "openingHours": "12:00 PM - 11:30 PM",
+        "phone": "+91 22 4015 7555",
+        "websiteUrl": "https://www.google.com/search?q=O%20Pedro%20BKC%20official%20website"
+      }
+    },
+    {
+      "id": 16,
+      "name": "Kofuku",
+      "area": "Bandra",
+      "cuisine": "Japanese",
+      "price": "Mid Range",
+      "rating": 4.4,
+      "emoji": "🍜",
+      "address": "Linking Road, Bandra West",
+      "description": "Cosy Japanese comfort food with ramen, donburi, sushi, and private booth seating.",
+      "highlight": "Best for: cosy ramen dates",
+      "photo": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=900&q=80",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Kofuku+Bandra+Mumbai",
+      "bookingUrl": "https://www.google.com/search?q=Kofuku+Bandra+book+table",
+      "orderUrl": "https://www.google.com/search?q=Kofuku+Bandra+order+food",
+      "averageSpend": "₹2,900 for two",
+      "spendValue": 2900,
+      "perfectFor": "Japanese comfort food, Bandra dates, cosy ramen plans",
+      "mustOrder": "Ramen and chicken karaage",
+      "curatedRating": 8.7,
+      "tags": [
+        "japanese",
+        "bandra",
+        "date night",
+        "under 3000",
+        "hidden gems"
+      ],
+      "collections": [
+        "japanese-picks",
+        "under-3000",
+        "hidden-gems",
+        "date-nights"
+      ],
+      "occasions": [
+        "date night",
+        "hidden gems"
+      ],
+      "dressCode": "Relaxed casual",
+      "features": {
+        "outdoorSeating": true,
+        "liveMusic": false,
+        "petFriendly": false,
+        "vegetarianFriendly": false,
+        "valetParking": true
+      },
+      "detail": {
+        "editorialDescription": "Kofuku is the kind of Mumbai table that earns its place through mood as much as food. Cosy Japanese comfort food with ramen, donburi, sushi, and private booth seating. The room works especially well for japanese comfort food, bandra dates, cosy ramen plans, with a signature order of ramen and chicken karaage.",
+        "gallery": [
+          "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?auto=format&fit=crop&w=1200&q=80"
+        ],
+        "scores": {
+          "food": 8.9,
+          "ambience": 8.7,
+          "service": 8.6,
+          "luxuryFeel": 8.5,
+          "dateNight": 9,
+          "instagramWorthiness": 8.5
+        },
+        "bestTableTip": "Request a corner table away from the main service path.",
+        "parkingValet": "Valet usually available",
+        "openingHours": "12:00 PM - 11:30 PM",
+        "phone": "+91 22 4016 7592",
+        "websiteUrl": "https://www.google.com/search?q=Kofuku%20Bandra%20official%20website"
+      }
+    },
+    {
+      "id": 17,
+      "name": "Kyani & Co.",
+      "area": "Marine Lines",
+      "cuisine": "Irani Cafe",
+      "price": "Budget",
+      "rating": 4.4,
+      "emoji": "🥐",
+      "address": "Jer Mahal Estate, Marine Lines",
+      "description": "Vintage Irani cafe charm with bun maska, chai, berry pulao, and baked treats.",
+      "highlight": "Best for: old Bombay mornings",
+      "photo": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Kyani+and+Co+Marine+Lines+Mumbai",
+      "bookingUrl": "https://www.google.com/search?q=Kyani+and+Co+Mumbai",
+      "orderUrl": "https://www.google.com/search?q=Kyani+and+Co+Mumbai+order+food",
+      "averageSpend": "₹900 for two",
+      "spendValue": 900,
+      "perfectFor": "Old Bombay breakfasts, budget dates, hidden-gem cafe stops",
+      "mustOrder": "Bun maska and Irani chai",
+      "curatedRating": 8.6,
+      "tags": [
+        "hidden gems",
+        "under 3000",
+        "brunch",
+        "family",
+        "cafe"
+      ],
+      "collections": [
+        "hidden-gems",
+        "under-3000",
+        "best-brunch",
+        "family-picks"
+      ],
+      "occasions": [
+        "hidden gems",
+        "brunch",
+        "family"
+      ],
+      "dressCode": "Relaxed casual",
+      "features": {
+        "outdoorSeating": false,
+        "liveMusic": false,
+        "petFriendly": true,
+        "vegetarianFriendly": false,
+        "valetParking": false
+      },
+      "detail": {
+        "editorialDescription": "Kyani & Co. is the kind of Mumbai table that earns its place through mood as much as food. Vintage Irani cafe charm with bun maska, chai, berry pulao, and baked treats. The room works especially well for old bombay breakfasts, budget dates, hidden-gem cafe stops, with a signature order of bun maska and irani chai.",
+        "gallery": [
+          "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1200&q=80"
+        ],
+        "scores": {
+          "food": 8.8,
+          "ambience": 8.6,
+          "service": 8.5,
+          "luxuryFeel": 8.4,
+          "dateNight": 8.5,
+          "instagramWorthiness": 8.4
+        },
+        "bestTableTip": "Choose an early dinner slot for the smoothest service.",
+        "parkingValet": "Street parking nearby; arrive early",
+        "openingHours": "8:00 AM - 11:30 PM",
+        "phone": "+91 22 4017 7629",
+        "websiteUrl": "https://www.google.com/search?q=Kyani%20%26%20Co.%20Marine%20Lines%20official%20website"
+      }
+    },
+    {
+      "id": 18,
+      "name": "Mahesh Lunch Home",
+      "area": "Juhu",
+      "cuisine": "Seafood",
+      "price": "Mid Range",
+      "rating": 4.5,
+      "emoji": "🦐",
+      "address": "Juhu Tara Road, Juhu",
+      "description": "A dependable coastal favourite for prawns, crab, neer dosa, and family dinners.",
+      "highlight": "Best for: seafood thalis",
+      "photo": "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=900&q=80",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Mahesh+Lunch+Home+Juhu+Mumbai",
+      "bookingUrl": "https://www.google.com/search?q=Mahesh+Lunch+Home+Juhu+book+table",
+      "orderUrl": "https://www.google.com/search?q=Mahesh+Lunch+Home+Juhu+order+food",
+      "averageSpend": "₹2,700 for two",
+      "spendValue": 2700,
+      "perfectFor": "Family seafood meals, Juhu lunches, coastal comfort food",
+      "mustOrder": "Prawn gassi and neer dosa",
+      "curatedRating": 8.8,
+      "tags": [
+        "family",
+        "juhu",
+        "seafood",
+        "under 3000",
+        "brunch"
+      ],
+      "collections": [
+        "family-picks",
+        "under-3000",
+        "best-brunch"
+      ],
+      "occasions": [
+        "family",
+        "brunch"
+      ],
+      "dressCode": "Relaxed casual",
+      "features": {
+        "outdoorSeating": true,
+        "liveMusic": false,
+        "petFriendly": false,
+        "vegetarianFriendly": false,
+        "valetParking": true
+      },
+      "detail": {
+        "editorialDescription": "Mahesh Lunch Home is the kind of Mumbai table that earns its place through mood as much as food. A dependable coastal favourite for prawns, crab, neer dosa, and family dinners. The room works especially well for family seafood meals, juhu lunches, coastal comfort food, with a signature order of prawn gassi and neer dosa.",
+        "gallery": [
+          "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=900&q=80",
+          "https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=1200&q=80",
+          "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?auto=format&fit=crop&w=1200&q=80"
+        ],
+        "scores": {
+          "food": 9,
+          "ambience": 8.8,
+          "service": 8.7,
+          "luxuryFeel": 8.6,
+          "dateNight": 8.7,
+          "instagramWorthiness": 8.6
+        },
+        "bestTableTip": "Choose an early dinner slot for the smoothest service.",
+        "parkingValet": "Valet usually available",
+        "openingHours": "12:00 PM - 11:30 PM",
+        "phone": "+91 22 4018 7666",
+        "websiteUrl": "https://www.google.com/search?q=Mahesh%20Lunch%20Home%20Juhu%20official%20website"
+      }
+    }
+  ]
+}

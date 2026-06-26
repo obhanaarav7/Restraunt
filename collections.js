@@ -1,0 +1,163 @@
+// collections.js
+// Collections page behavior. Restaurants are loaded from restaurants.json.
+
+const collectionGrid = document.querySelector("#collectionGrid");
+const collectionRestaurantGrid = document.querySelector("#collectionRestaurantGrid");
+const collectionTitle = document.querySelector("#collectionTitle");
+const collectionSubtext = document.querySelector("#collectionSubtext");
+const themeToggle = document.querySelector("#themeToggle");
+
+let activeCollectionId = collections[0].id;
+
+function loadFromStorage(key, backupValue) {
+  try {
+    const savedValue = localStorage.getItem(key);
+    return savedValue ? JSON.parse(savedValue) : backupValue;
+  } catch (error) {
+    return backupValue;
+  }
+}
+
+function saveToStorage(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch (error) {
+    // The page still works if storage is blocked.
+  }
+}
+
+function setTheme(theme) {
+  const isLight = theme === "light";
+  document.body.classList.toggle("light-theme", isLight);
+  themeToggle.textContent = isLight ? "🌙" : "☀️";
+  themeToggle.setAttribute("aria-label", isLight ? "Switch to dark mode" : "Switch to light mode");
+  saveToStorage("theme", theme);
+}
+
+function getPriceLevel(price) {
+  return {
+    "Budget": 1,
+    "Mid Range": 2,
+    "Premium": 3,
+    "Luxury": 4
+  }[price] || 0;
+}
+
+function createPriceMeter(price) {
+  let dots = "";
+  const filledDots = getPriceLevel(price);
+
+  for (let index = 1; index <= 4; index++) {
+    const filledClass = index <= filledDots ? " is-filled" : "";
+    dots += `<span class="price-dot${filledClass}"></span>`;
+  }
+
+  return dots;
+}
+
+function formatCardNumber(id) {
+  return `No. ${String(id).padStart(2, "0")}`;
+}
+
+function createRestaurantCard(restaurant, index) {
+  const featuredLabel = restaurant.rating >= 4.7 ? '<span class="featured-pill">Top rated</span>' : "";
+
+  return `
+    <article class="restaurant-card" data-restaurant-id="${restaurant.id}" style="animation-delay: ${index * 0.04}s">
+      <div class="card-top">
+        <img class="restaurant-photo" src="${restaurant.photo}" alt="${restaurant.name} restaurant photo" loading="lazy">
+        <div class="photo-overlay"></div>
+        <span class="card-number">${formatCardNumber(restaurant.id)}</span>
+        <span class="rating-pill">${restaurant.rating} ★</span>
+        ${featuredLabel}
+        <span class="food-emoji" aria-hidden="true">${restaurant.emoji}</span>
+      </div>
+
+      <div class="card-body">
+        <p class="card-kicker">${restaurant.area} · ${restaurant.cuisine}</p>
+        <h3>${restaurant.name}</h3>
+        <p class="description">${restaurant.description}</p>
+
+        <div class="tag-row">
+          <span class="tag">${restaurant.area}</span>
+          <span class="tag">${restaurant.cuisine}</span>
+          <span class="tag">${restaurant.price}</span>
+        </div>
+
+        <div class="price-meter" aria-label="${restaurant.price} price level">
+          ${createPriceMeter(restaurant.price)}
+        </div>
+
+        <div class="meta-row">
+          <span>${restaurant.address}</span>
+          <span class="highlight">${restaurant.highlight}</span>
+        </div>
+
+        <div class="card-actions">
+          <a class="action-link" href="${restaurant.bookingUrl}" target="_blank" rel="noopener">Book</a>
+          <a class="action-link secondary" href="${restaurant.orderUrl}" target="_blank" rel="noopener">Order</a>
+          <a class="action-link secondary" href="${restaurant.mapUrl}" target="_blank" rel="noopener">Map</a>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function getCollectionRestaurants(collectionId) {
+  return restaurants.filter(function(restaurant) {
+    return restaurant.collections.includes(collectionId);
+  });
+}
+
+function renderCollectionCards() {
+  collectionGrid.innerHTML = collections.map(function(collection) {
+    const activeClass = collection.id === activeCollectionId ? " is-active" : "";
+    return `
+      <button class="collection-card${activeClass}" type="button" data-collection="${collection.id}">
+        <p class="eyebrow">${getCollectionRestaurants(collection.id).length} picks</p>
+        <h3>${collection.title}</h3>
+        <p>${collection.description}</p>
+      </button>
+    `;
+  }).join("");
+}
+
+function showCollection(collectionId) {
+  const collection = collections.find(function(item) {
+    return item.id === collectionId;
+  }) || collections[0];
+  const filteredRestaurants = getCollectionRestaurants(collection.id);
+
+  activeCollectionId = collection.id;
+  collectionTitle.textContent = collection.title;
+  collectionSubtext.textContent = `${filteredRestaurants.length} restaurant${filteredRestaurants.length === 1 ? "" : "s"} selected for this collection.`;
+  collectionRestaurantGrid.innerHTML = filteredRestaurants.map(createRestaurantCard).join("");
+  renderCollectionCards();
+}
+
+async function initCollections() {
+  await DataStore.loadRestaurants();
+  setTheme(loadFromStorage("theme", "dark"));
+  const params = new URLSearchParams(window.location.search);
+  showCollection(params.get("collection") || collections[0].id);
+
+  themeToggle.addEventListener("click", function() {
+    setTheme(document.body.classList.contains("light-theme") ? "dark" : "light");
+  });
+
+  collectionGrid.addEventListener("click", function(event) {
+    const collectionCard = event.target.closest(".collection-card");
+    if (collectionCard) {
+      showCollection(collectionCard.dataset.collection);
+    }
+  });
+}
+
+function renderCollectionsError(error) {
+  collectionTitle.textContent = "Collection data could not load";
+  collectionSubtext.textContent = error.message;
+  collectionGrid.innerHTML = "";
+  collectionRestaurantGrid.innerHTML = "";
+}
+
+initCollections().catch(renderCollectionsError);
