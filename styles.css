@@ -134,6 +134,9 @@ body.light-theme .hero-card-meta span {
 .top-bar,
 .hero-content,
 .filters-panel,
+.concierge-panel,
+.collections-panel,
+.collections-results,
 .results-heading,
 .restaurant-grid,
 .empty-state,
@@ -354,7 +357,22 @@ main {
   backdrop-filter: blur(18px);
 }
 
+.concierge-panel,
+.collections-panel {
+  display: grid;
+  gap: 24px;
+  margin-top: 34px;
+  padding: 28px;
+  background: rgba(255, 252, 246, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.74);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
 .filters-panel h2,
+.concierge-panel h2,
+.collections-panel h2,
 .results-heading h2,
 .empty-state h2 {
   margin: 4px 0 0;
@@ -367,6 +385,16 @@ main {
   display: grid;
   grid-template-columns: minmax(220px, 1.35fr) repeat(3, minmax(135px, 0.85fr)) auto;
   gap: 14px;
+}
+
+.concierge-form {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto;
+  gap: 14px;
+}
+
+.concierge-form button {
+  align-self: end;
 }
 
 label {
@@ -455,6 +483,90 @@ button:hover {
 
 .quick-chip.is-active span {
   background: rgba(255, 255, 255, 0.16);
+}
+
+.concierge-results,
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 14px;
+}
+
+.recommendation-card,
+.collection-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 24px;
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.86);
+  border-radius: var(--radius-large);
+  color: var(--ink);
+  box-shadow: 0 18px 48px rgba(41, 28, 13, 0.1);
+  animation: cardIn 0.55s ease both;
+}
+
+.recommendation-card h3,
+.collection-card h3 {
+  margin: 6px 0 10px;
+  font-size: 1.45rem;
+  line-height: 1.15;
+  letter-spacing: -0.05em;
+}
+
+.recommendation-reason,
+.collection-card p {
+  margin: 0 0 18px;
+  color: var(--muted);
+}
+
+.recommendation-details {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.recommendation-details div {
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
+.recommendation-details dt {
+  color: var(--brand);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.recommendation-details dd {
+  margin: 3px 0 0;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.reserve-link {
+  margin-top: auto;
+}
+
+.collection-card {
+  cursor: pointer;
+  text-align: left;
+}
+
+.collection-card.is-active {
+  background: #1d1812;
+  color: #fff8ed;
+}
+
+.collection-card.is-active p,
+.collection-card.is-active .eyebrow {
+  color: #ffe7b0;
+}
+
+.collections-results {
+  margin-top: 34px;
 }
 
 .results-heading {
@@ -736,6 +848,8 @@ footer {
 
 @media (max-width: 1040px) {
   .hero-content,
+  .concierge-results,
+  .collection-grid,
   .restaurant-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -773,6 +887,9 @@ footer {
   }
 
   .hero-content,
+  .concierge-form,
+  .concierge-results,
+  .collection-grid,
   .filters-grid,
   .restaurant-grid {
     grid-template-columns: 1fr;

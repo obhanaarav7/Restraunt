@@ -19,6 +19,7 @@
       <div class="nav-actions">
         <span class="nav-badge">Curated city dining</span>
         <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to light mode">☀️</button>
+        <a class="nav-link" href="collections.html">Collections</a>
         <a class="nav-link" href="#restaurantGrid">Explore spots</a>
       </div>
     </nav>
@@ -114,6 +115,28 @@
       </div>
     </section>
 
+    <section class="concierge-panel" aria-labelledby="concierge-title">
+      <div>
+        <p class="eyebrow">Concierge</p>
+        <h2 id="concierge-title">Tell us the mood. We will shortlist the table.</h2>
+      </div>
+
+      <form id="conciergeForm" class="concierge-form">
+        <label for="conciergeInput">
+          Dining brief
+          <input id="conciergeInput" type="search" placeholder="Best anniversary dinner under ₹6000">
+        </label>
+        <button type="submit">Recommend</button>
+      </form>
+
+      <div id="conciergeChips" class="quick-filters concierge-chips" aria-label="Concierge quick recommendations"></div>
+
+      <div>
+        <p class="eyebrow">Top 3 recommendations</p>
+        <div id="conciergeResults" class="concierge-results" aria-live="polite"></div>
+      </div>
+    </section>
+
     <section class="results-heading" aria-live="polite">
       <div>
         <p class="eyebrow">Restaurants</p>
@@ -136,6 +159,7 @@
   </footer>
 
   <script src="restaurants-data.js"></script>
+  <script src="assistant-data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

@@ -13,6 +13,9 @@ HTML, CSS, and vanilla JavaScript.
 - Book, order, and Google Maps buttons on every restaurant card.
 - Save/favourite buttons with a "Saved only" filter.
 - Dark/light theme toggle remembered in the browser.
+- Concierge search that recommends the top 3 restaurants from plain-language dining briefs.
+- Concierge quick chips for date night, rooftop, Japanese, Italian, brunch, wine, hidden gems, family, business, and late night.
+- Separate `collections.html` page with curated collections that automatically filter restaurants.
 - Card entrance animations and extra mobile polish.
 - Reset button to quickly show every restaurant again.
 - Rich premium UI with glass panels, gradients, card badges, price meters, shadows, and responsive layouts.
@@ -35,9 +38,11 @@ This is the main page. It creates the app structure:
 - A premium hero preview card for a featured restaurant.
 - Small guide stats near the hero title.
 - A theme toggle button in the top navigation.
+- A link to the Collections page.
 - A filter panel with a search box and three dropdowns: area, cuisine, and price.
 - Quick area buttons for common filters like Bandra, BKC, Colaba, and Powai.
 - A "Saved only" button with a saved restaurant count.
+- A Concierge panel with a dining-brief input, quick chips, and top 3 recommendations.
 - A reset button.
 - A results heading that tells the user how many restaurants are showing.
 - An empty state message for filter combinations with no matches.
@@ -51,6 +56,7 @@ This file controls the premium visual design:
 - The hero uses layered gradients, glass effects, and a featured card.
 - CSS Grid lays out the filter panel and restaurant cards.
 - Cards use photos, hover effects, shadows, rounded corners, badges, card numbers, and price meters.
+- Concierge and collection cards reuse the same premium card language.
 - A `light-theme` body class changes the page into light mode.
 - Media queries make the layout adapt for tablets and phones.
 
@@ -77,6 +83,19 @@ Each restaurant object includes:
 Keeping the data separate makes it easy to add or edit restaurants without touching
 the filtering logic.
 
+### `assistant-data.js`
+
+This file stores extra metadata for the concierge and collections:
+
+- Average spend
+- Perfect-for notes
+- Must-order dishes
+- Curated rating
+- Keyword tags
+- Collection membership
+- Concierge quick chip labels and queries
+- Collection names and descriptions
+
 ### `script.js`
 
 This file adds the interactivity:
@@ -91,7 +110,24 @@ This file adds the interactivity:
 - Clears filters with `resetFilters`.
 - Saves favourite restaurants in `localStorage`.
 - Remembers dark/light theme choice in `localStorage`.
+- Scores concierge recommendations with local JavaScript keyword matching only.
+- Renders the top 3 concierge recommendations.
+- Handles concierge quick chip clicks.
 - Adds event listeners so the page reacts when dropdowns change.
+
+### `collections.html`
+
+This is the separate Collections page. It uses the same CSS, data files, and visual
+style as the main page. Each collection button filters restaurants automatically.
+
+### `collections.js`
+
+This file controls the Collections page:
+
+- Renders all collection buttons from `assistant-data.js`.
+- Filters restaurants by collection membership.
+- Reuses the same premium restaurant card structure.
+- Keeps the dark/light theme toggle working on the collections page.
 
 ## How to add a restaurant
 

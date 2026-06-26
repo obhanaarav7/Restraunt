@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collections | Mumbai Table</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-glow page-glow-one"></div>
+  <div class="page-glow page-glow-two"></div>
+
+  <header class="hero">
+    <nav class="top-bar" aria-label="Collections navigation">
+      <a class="logo" href="index.html">
+        <span class="logo-mark">MT</span>
+        Mumbai Table
+      </a>
+      <div class="nav-actions">
+        <span class="nav-badge">Curated collections</span>
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to light mode">☀️</button>
+        <a class="nav-link" href="index.html">Dining assistant</a>
+      </div>
+    </nav>
+
+    <section class="hero-content">
+      <div class="hero-copy">
+        <p class="eyebrow">Collections</p>
+        <h1>Browse Mumbai by dining mood.</h1>
+        <p class="hero-text">
+          Choose a collection and the restaurant cards filter instantly using the same curated data.
+        </p>
+      </div>
+
+      <aside class="hero-card" aria-label="Collections preview">
+        <div class="hero-card-top">
+          <span class="live-dot"></span>
+          Featured collection
+        </div>
+        <div class="hero-card-photo">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Premium restaurant dining room">
+        </div>
+        <h2>Luxury Dining</h2>
+        <p>High-end rooms, premium service, and celebration energy.</p>
+        <div class="hero-card-meta">
+          <span>Premium</span>
+          <span>Curated</span>
+          <span>Mumbai</span>
+        </div>
+      </aside>
+    </section>
+  </header>
+
+  <main>
+    <section class="collections-panel" aria-labelledby="collections-title">
+      <div>
+        <p class="eyebrow">Choose a collection</p>
+        <h2 id="collections-title">Collections</h2>
+      </div>
+
+      <div id="collectionGrid" class="collection-grid" aria-label="Dining collections"></div>
+    </section>
+
+    <section class="results-heading" aria-live="polite">
+      <div>
+        <p class="eyebrow">Collection results</p>
+        <h2 id="collectionTitle">Best Date Nights</h2>
+      </div>
+      <p id="collectionSubtext">Restaurants are filtered automatically by collection.</p>
+    </section>
+
+    <section id="collectionRestaurantGrid" class="restaurant-grid" aria-label="Collection restaurant results"></section>
+  </main>
+
+  <footer>
+    <p>Built with HTML, CSS, and JavaScript for food lovers in Mumbai.</p>
+  </footer>
+
+  <script src="restaurants-data.js"></script>
+  <script src="assistant-data.js"></script>
+  <script src="collections.js"></script>
+</body>
+</html>
