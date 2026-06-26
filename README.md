@@ -13,7 +13,6 @@ HTML, CSS, and vanilla JavaScript.
 - Book, order, and Google Maps buttons on every restaurant card.
 - Save/favourite buttons with a "Saved only" filter.
 - Dark/light theme toggle remembered in the browser.
-- Social dining map demo where you can see friend check-ins and add a friend.
 - Card entrance animations and extra mobile polish.
 - Reset button to quickly show every restaurant again.
 - Rich premium UI with glass panels, gradients, card badges, price meters, shadows, and responsive layouts.
@@ -39,7 +38,6 @@ This is the main page. It creates the app structure:
 - A filter panel with a search box and three dropdowns: area, cuisine, and price.
 - Quick area buttons for common filters like Bandra, BKC, Colaba, and Powai.
 - A "Saved only" button with a saved restaurant count.
-- A social map section with friend pins, a friend list, and an add-friend form.
 - A reset button.
 - A results heading that tells the user how many restaurants are showing.
 - An empty state message for filter combinations with no matches.
@@ -53,15 +51,12 @@ This file controls the premium visual design:
 - The hero uses layered gradients, glass effects, and a featured card.
 - CSS Grid lays out the filter panel and restaurant cards.
 - Cards use photos, hover effects, shadows, rounded corners, badges, card numbers, and price meters.
-- The social map uses CSS shapes and positioned friend pins.
 - A `light-theme` body class changes the page into light mode.
 - Media queries make the layout adapt for tablets and phones.
 
 ### `restaurants-data.js`
 
 This file stores the restaurant data in one array named `restaurants`.
-
-It also stores `friendCheckIns`, which is demo data for the social dining map.
 
 Each restaurant object includes:
 
@@ -96,8 +91,6 @@ This file adds the interactivity:
 - Clears filters with `resetFilters`.
 - Saves favourite restaurants in `localStorage`.
 - Remembers dark/light theme choice in `localStorage`.
-- Renders demo friend check-ins on the social map.
-- Adds a new demo friend from the form.
 - Adds event listeners so the page reacts when dropdowns change.
 
 ## How to add a restaurant
@@ -124,9 +117,3 @@ Add a new object to the `restaurants` array in `restaurants-data.js`:
 ```
 
 The filters update automatically because `script.js` reads values from the data.
-
-## About the social map
-
-The social map is a frontend-only demo. It shows how a future app could work, but
-it does not use real friend locations. A production version would need user login,
-privacy controls, location permissions, and a backend database.

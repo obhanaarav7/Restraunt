@@ -134,7 +134,6 @@ body.light-theme .hero-card-meta span {
 .top-bar,
 .hero-content,
 .filters-panel,
-.social-panel,
 .results-heading,
 .restaurant-grid,
 .empty-state,
@@ -458,179 +457,6 @@ button:hover {
   background: rgba(255, 255, 255, 0.16);
 }
 
-.social-panel {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.05fr) minmax(260px, 0.75fr);
-  gap: 22px;
-  align-items: stretch;
-  margin-top: 34px;
-}
-
-.social-copy,
-.map-card,
-.friend-list-wrap {
-  padding: 24px;
-  background: rgba(255, 252, 246, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.78);
-  border-radius: var(--radius-large);
-  box-shadow: 0 18px 48px rgba(41, 28, 13, 0.1);
-  backdrop-filter: blur(18px);
-}
-
-.social-copy h2 {
-  margin: 6px 0 12px;
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  line-height: 0.98;
-  letter-spacing: -0.06em;
-}
-
-.social-copy p {
-  color: var(--muted);
-}
-
-.friend-form {
-  display: grid;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.map-card {
-  min-height: 460px;
-}
-
-.map-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  margin-bottom: 14px;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.map-toolbar strong {
-  color: var(--brand-dark);
-}
-
-.friend-map {
-  position: relative;
-  min-height: 380px;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 26% 28%, rgba(244, 197, 106, 0.32), transparent 9rem),
-    radial-gradient(circle at 70% 62%, rgba(226, 96, 45, 0.24), transparent 10rem),
-    linear-gradient(135deg, #2a1a13, #8f2f16);
-  border-radius: 28px;
-}
-
-.friend-map::before,
-.friend-map::after {
-  position: absolute;
-  inset: 16%;
-  content: "";
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 45% 55% 50% 42%;
-  transform: rotate(-14deg);
-}
-
-.friend-map::after {
-  inset: 32% 22% 18% 34%;
-  border-style: dashed;
-  transform: rotate(18deg);
-}
-
-.map-label {
-  position: absolute;
-  padding: 7px 10px;
-  background: rgba(255, 248, 237, 0.9);
-  border-radius: 999px;
-  color: var(--brand-dark);
-  font-size: 0.74rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.map-label.north {
-  left: 10%;
-  top: 12%;
-}
-
-.map-label.south {
-  right: 9%;
-  bottom: 10%;
-}
-
-.friend-pin {
-  position: absolute;
-  z-index: 2;
-  display: grid;
-  width: 52px;
-  height: 52px;
-  place-items: center;
-  background: linear-gradient(135deg, var(--gold), var(--brand));
-  border: 3px solid rgba(255, 248, 237, 0.92);
-  border-radius: 50% 50% 50% 12px;
-  color: #25150d;
-  font-size: 0.78rem;
-  font-weight: 900;
-  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.28);
-  transform: translate(-50%, -50%) rotate(-45deg);
-}
-
-.friend-pin span {
-  transform: rotate(45deg);
-}
-
-.friend-pin:hover {
-  transform: translate(-50%, -50%) rotate(-45deg) translateY(-3px);
-}
-
-.friend-card {
-  display: grid;
-  grid-template-columns: 46px 1fr;
-  gap: 12px;
-  align-items: center;
-  padding: 12px;
-  background: #fff8ed;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-}
-
-.friend-list {
-  display: grid;
-  gap: 10px;
-}
-
-.friend-list-wrap h3 {
-  margin-top: 0;
-}
-
-.friend-avatar {
-  display: grid;
-  width: 46px;
-  height: 46px;
-  place-items: center;
-  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
-  border-radius: 16px;
-  color: #fff8ed;
-  font-weight: 900;
-}
-
-.friend-card h4,
-.friend-card p {
-  margin: 0;
-}
-
-.friend-card h4 {
-  line-height: 1.15;
-}
-
-.friend-card p {
-  color: var(--muted);
-  font-size: 0.88rem;
-}
-
 .results-heading {
   display: flex;
   align-items: end;
@@ -910,13 +736,8 @@ footer {
 
 @media (max-width: 1040px) {
   .hero-content,
-  .social-panel,
   .restaurant-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .map-card {
-    grid-column: span 2;
   }
 
   .filters-grid {
@@ -946,7 +767,6 @@ footer {
 
   .top-bar,
   .nav-actions,
-  .map-toolbar,
   .results-heading {
     align-items: flex-start;
     flex-direction: column;
@@ -954,7 +774,6 @@ footer {
 
   .hero-content,
   .filters-grid,
-  .social-panel,
   .restaurant-grid {
     grid-template-columns: 1fr;
   }
@@ -969,14 +788,6 @@ footer {
 
   #resetButton {
     grid-column: auto;
-  }
-
-  .map-card {
-    grid-column: auto;
-  }
-
-  .friend-map {
-    min-height: 320px;
   }
 }
 

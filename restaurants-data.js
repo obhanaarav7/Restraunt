@@ -1,6 +1,6 @@
 // restaurants-data.js
 // This file is our small "database". Each object stores one restaurant.
-// The app reads this data to create cards, filters, map pins, and friend check-ins.
+// The app reads this data to create cards, filters, and restaurant actions.
 
 const restaurants = [
   {
@@ -290,44 +290,5 @@ const restaurants = [
     mapUrl: "https://www.google.com/maps/search/?api=1&query=Mahesh+Lunch+Home+Juhu+Mumbai",
     bookingUrl: "https://www.google.com/search?q=Mahesh+Lunch+Home+Juhu+book+table",
     orderUrl: "https://www.google.com/search?q=Mahesh+Lunch+Home+Juhu+order+food"
-  }
-];
-
-const friendCheckIns = [
-  {
-    id: 1,
-    name: "Aarav",
-    avatar: "AO",
-    restaurantId: 2,
-    status: "Trying the seasonal menu",
-    x: 46,
-    y: 58
-  },
-  {
-    id: 2,
-    name: "Mira",
-    avatar: "MK",
-    restaurantId: 12,
-    status: "Ramen night",
-    x: 28,
-    y: 44
-  },
-  {
-    id: 3,
-    name: "Kabir",
-    avatar: "KS",
-    restaurantId: 6,
-    status: "Dim sum with office friends",
-    x: 38,
-    y: 52
-  },
-  {
-    id: 4,
-    name: "Rhea",
-    avatar: "RS",
-    restaurantId: 5,
-    status: "Post-theatre chai",
-    x: 21,
-    y: 63
   }
 ];

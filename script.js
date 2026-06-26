@@ -4,7 +4,6 @@
 // 2. Show restaurant cards with photos, buttons, and save hearts.
 // 3. Filter by search, area, cuisine, price, and saved restaurants.
 // 4. Switch dark/light theme.
-// 5. Render the demo social dining map.
 
 const restaurantGrid = document.querySelector("#restaurantGrid");
 const resultsCount = document.querySelector("#resultsCount");
@@ -21,15 +20,8 @@ const favoritesOnlyButton = document.querySelector("#favoritesOnlyButton");
 const favoriteCount = document.querySelector("#favoriteCount");
 
 const themeToggle = document.querySelector("#themeToggle");
-const friendForm = document.querySelector("#friendForm");
-const friendName = document.querySelector("#friendName");
-const friendRestaurant = document.querySelector("#friendRestaurant");
-const friendMap = document.querySelector("#friendMap");
-const friendList = document.querySelector("#friendList");
-const friendCount = document.querySelector("#friendCount");
 
 let savedRestaurantIds = new Set(loadFromStorage("savedRestaurants", []));
-let customFriends = loadFromStorage("customFriends", []);
 let favoritesOnly = false;
 
 // This helper reads localStorage safely. If storage is blocked, it returns a backup value.
@@ -65,12 +57,6 @@ function fillFilter(selectElement, values, customOrder) {
     option.value = value;
     option.textContent = value;
     selectElement.appendChild(option);
-  });
-}
-
-function getRestaurantById(id) {
-  return restaurants.find(function(restaurant) {
-    return restaurant.id === Number(id);
   });
 }
 
@@ -168,7 +154,7 @@ function displayRestaurants(restaurantsToShow) {
 
   if (restaurantsToShow.length === restaurants.length && !favoritesOnly) {
     resultsCount.textContent = "Showing all restaurants";
-    resultsSubtext.textContent = "Tip: save restaurants, open maps, or add friends to the demo dining map.";
+    resultsSubtext.textContent = "Tip: save restaurants, open maps, or combine filters to narrow your choices.";
   } else {
     resultsCount.textContent = `Showing ${restaurantsToShow.length} restaurant${restaurantsToShow.length === 1 ? "" : "s"}`;
     resultsSubtext.textContent = favoritesOnly
@@ -241,94 +227,6 @@ function setTheme(theme) {
   saveToStorage("theme", theme);
 }
 
-function getInitials(name) {
-  return name
-    .split(" ")
-    .map(function(part) {
-      return part.charAt(0);
-    })
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-}
-
-function getAllFriends() {
-  return friendCheckIns.concat(customFriends);
-}
-
-function renderFriendRestaurantOptions() {
-  friendRestaurant.innerHTML = restaurants.map(function(restaurant) {
-    return `<option value="${restaurant.id}">${restaurant.name} · ${restaurant.area}</option>`;
-  }).join("");
-}
-
-function renderFriendMap() {
-  const allFriends = getAllFriends();
-
-  const labels = `
-    <span class="map-label north">Bandra / BKC</span>
-    <span class="map-label south">Town side</span>
-  `;
-
-  const pins = allFriends.map(function(friend) {
-    return `
-      <button class="friend-pin" type="button" title="${friend.name}" style="left: ${friend.x}%; top: ${friend.y}%;">
-        <span>${friend.avatar}</span>
-      </button>
-    `;
-  }).join("");
-
-  friendMap.innerHTML = labels + pins;
-  friendCount.textContent = `${allFriends.length} friend${allFriends.length === 1 ? "" : "s"} out`;
-}
-
-function renderFriendList() {
-  friendList.innerHTML = getAllFriends().map(function(friend) {
-    const restaurant = getRestaurantById(friend.restaurantId);
-
-    return `
-      <article class="friend-card">
-        <span class="friend-avatar">${friend.avatar}</span>
-        <div>
-          <h4>${friend.name} at ${restaurant.name}</h4>
-          <p>${friend.status} · ${restaurant.area}</p>
-        </div>
-      </article>
-    `;
-  }).join("");
-}
-
-function renderFriends() {
-  renderFriendMap();
-  renderFriendList();
-}
-
-function addFriend(event) {
-  event.preventDefault();
-
-  const name = friendName.value.trim();
-
-  if (!name) {
-    friendName.focus();
-    return;
-  }
-
-  const newFriend = {
-    id: Date.now(),
-    name: name,
-    avatar: getInitials(name),
-    restaurantId: Number(friendRestaurant.value),
-    status: "Just checked in",
-    x: 18 + Math.floor(Math.random() * 64),
-    y: 18 + Math.floor(Math.random() * 64)
-  };
-
-  customFriends.push(newFriend);
-  saveToStorage("customFriends", customFriends);
-  friendName.value = "";
-  renderFriends();
-}
-
 // Start the app by filling filters and showing every restaurant card.
 fillFilter(areaFilter, restaurants.map(function(restaurant) {
   return restaurant.area;
@@ -342,8 +240,6 @@ fillFilter(priceFilter, restaurants.map(function(restaurant) {
   return restaurant.price;
 }), ["Budget", "Mid Range", "Premium", "Luxury"]);
 
-renderFriendRestaurantOptions();
-renderFriends();
 setTheme(loadFromStorage("theme", "dark"));
 displayRestaurants(restaurants);
 updateQuickChips();
@@ -354,7 +250,6 @@ areaFilter.addEventListener("change", filterRestaurants);
 cuisineFilter.addEventListener("change", filterRestaurants);
 priceFilter.addEventListener("change", filterRestaurants);
 resetButton.addEventListener("click", resetFilters);
-friendForm.addEventListener("submit", addFriend);
 
 themeToggle.addEventListener("click", function() {
   const nextTheme = document.body.classList.contains("light-theme") ? "dark" : "light";

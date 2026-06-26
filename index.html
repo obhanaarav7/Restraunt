@@ -19,7 +19,6 @@
       <div class="nav-actions">
         <span class="nav-badge">Curated city dining</span>
         <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to light mode">☀️</button>
-        <a class="nav-link" href="#socialMap">Friend map</a>
         <a class="nav-link" href="#restaurantGrid">Explore spots</a>
       </div>
     </nav>
@@ -52,17 +51,17 @@
       <aside class="hero-card" aria-label="Featured restaurant preview">
         <div class="hero-card-top">
           <span class="live-dot"></span>
-          Friends are out
+          Tonight's pick
         </div>
         <div class="hero-card-photo">
-          <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=900&q=80" alt="Restaurant table with dishes">
+          <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=900&q=80" alt="Seafood restaurant table">
         </div>
-        <h2>The Bombay Canteen</h2>
-        <p>Aarav is trying the seasonal menu in Lower Parel. Tap the map below to see more demo check-ins.</p>
+        <h2>Trishna, Fort</h2>
+        <p>Butter garlic crab, coastal classics, and a timeless old-Mumbai dining room.</p>
         <div class="hero-card-meta">
-          <span>4.7 ★</span>
+          <span>4.6 ★</span>
           <span>Premium</span>
-          <span>Modern Indian</span>
+          <span>Seafood</span>
         </div>
       </aside>
     </section>
@@ -112,44 +111,6 @@
         <button class="quick-chip" type="button" data-area="Colaba">Colaba</button>
         <button class="quick-chip" type="button" data-area="Powai">Powai</button>
         <button id="favoritesOnlyButton" class="quick-chip" type="button">Saved only <span id="favoriteCount">0</span></button>
-      </div>
-    </section>
-
-    <section id="socialMap" class="social-panel" aria-labelledby="social-title">
-      <div class="social-copy">
-        <p class="eyebrow">Social dining map</p>
-        <h2 id="social-title">See where friends are eating tonight.</h2>
-        <p>
-          This is a static demo of the social idea: friend pins, check-ins, and an add-friend form.
-          A real app would connect this to login, privacy settings, and a backend.
-        </p>
-
-        <form id="friendForm" class="friend-form">
-          <label for="friendName">
-            Friend name
-            <input id="friendName" type="text" placeholder="Add a friend..." maxlength="24">
-          </label>
-
-          <label for="friendRestaurant">
-            Dining at
-            <select id="friendRestaurant"></select>
-          </label>
-
-          <button type="submit">Add friend</button>
-        </form>
-      </div>
-
-      <div class="map-card">
-        <div class="map-toolbar">
-          <span>Live demo map</span>
-          <strong id="friendCount">0 friends out</strong>
-        </div>
-        <div id="friendMap" class="friend-map" aria-label="Friend dining map"></div>
-      </div>
-
-      <div class="friend-list-wrap">
-        <h3>Friend check-ins</h3>
-        <div id="friendList" class="friend-list"></div>
       </div>
     </section>
 
