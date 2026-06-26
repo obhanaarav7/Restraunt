@@ -6,9 +6,11 @@ HTML, CSS, and vanilla JavaScript.
 ## Features
 
 - Restaurant cards with area, cuisine, price, rating, address, and a short highlight.
-- Area, cuisine, and price filters that work together.
+- Area, cuisine, price, and search filters that work together.
+- Quick area chips for popular Mumbai neighbourhoods.
+- Premium hero section with stats and a featured restaurant preview.
 - Reset button to quickly show every restaurant again.
-- Clean premium UI with gradients, cards, rounded corners, shadows, and responsive layouts.
+- Rich premium UI with glass panels, gradients, card badges, price meters, shadows, and responsive layouts.
 - No build tools or frameworks needed.
 
 ## How to run
@@ -22,7 +24,10 @@ Open `index.html` directly in a browser.
 This is the main page. It creates the app structure:
 
 - A large hero section with the app title and description.
-- A filter panel with three dropdowns: area, cuisine, and price.
+- A premium hero preview card for a featured restaurant.
+- Small guide stats near the hero title.
+- A filter panel with a search box and three dropdowns: area, cuisine, and price.
+- Quick area buttons for common filters like Bandra, BKC, Colaba, and Powai.
 - A reset button.
 - A results heading that tells the user how many restaurants are showing.
 - An empty state message for filter combinations with no matches.
@@ -33,9 +38,9 @@ This is the main page. It creates the app structure:
 This file controls the premium visual design:
 
 - CSS variables in `:root` store reusable colors, shadows, and border radius values.
-- The hero uses layered gradients for a polished restaurant-guide feel.
+- The hero uses layered gradients, glass effects, and a featured card.
 - CSS Grid lays out the filter panel and restaurant cards.
-- Cards use hover effects, shadows, rounded corners, and badges.
+- Cards use hover effects, shadows, rounded corners, badges, card numbers, and price meters.
 - Media queries make the layout adapt for tablets and phones.
 
 ### `restaurants-data.js`
@@ -63,6 +68,8 @@ This file adds the interactivity:
 
 - Finds important HTML elements with `document.querySelector`.
 - Fills each dropdown using unique values from `restaurants-data.js`.
+- Searches restaurant names, areas, cuisines, and descriptions.
+- Lets quick chips update the area filter.
 - Builds restaurant card HTML with `createRestaurantCard`.
 - Shows cards with `displayRestaurants`.
 - Filters restaurants with `filterRestaurants`.
